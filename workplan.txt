@@ -1,0 +1,69 @@
+6th: Work starts
+
+Tuesday
+
+Meet with Line Nord at USF Verftet and Anna Borcheding at Piksel.
+Got practical information and a tour of USF facilities, including Brendans
+apartment and the studio that is at our disposal.
+
+In the studio, went over the artistic proposal and discussed the vision
+and its realization. 
+
+Had a meeting with Elisabeth Nesheim and Gisle Frøysland at Piksel where
+the terms of the residency were formalized in a written contract. Recieved
+a workstation that can be used to develop and present the prototype for the Piksel festival.
+
+Lunch/early dinner with Elisabeth at Sze Chuan House. Discussions around
+the problems of preservating new-media artworks, and how current man-machine interfaces are severely lacking.
+
+Created git repositories to contain code and documentation.
+https://github.com/piksels-and-lines-orchestra
+Agreed on which tasks need to be adressed during the 3-week residency in Bergen,
+and which can be skipped until after the Piksel festival.
+
+Published the code that was available from the PLO prototype from LGRU Piksels & Lines
+seminar in June, Bergen. Sent email request to LGRU list that participants of the
+meeting make the code they wrote available as well.
+http://listes.domainepublic.net/pipermail/lgru/2012-November/000262.html
+
+
+Wednesday
+* Define an OSC event protocol between players and sonification server.
+* Implement event protocol in player software. MyPaint, GIMP, Inkscape, Scribus.
+* Develop a simple test scenario/case for the sonification server.
+* Try out test scenario with the different technologies. Pure Data, CSound, SuperCollider
+* Decide on which sonification technology to use.
+
+Thursday
+
+
+Friday
+
+
+Saturday
+
+
+Sunday
+
+
+* Set up audio server workstation.
+
+-- Visual system set up.
+-- All technical decisions must be done.
+-- Libretto & Score proto done.
+-- All aspects hashed out. Refinements to be done by Jon
+
+17th: Brendan leaves
+
+
+22th: Piksel starts.
+
+23th: Brendan returns, 15.00
+
+-- Basic Libretto & Score Done
+-- Basic sound system done
+-- Couple of sound patches 
+-- Basic visual system done
+
+24th: Presentation/Demonstration
+25th: Brendan + Jon leaves
