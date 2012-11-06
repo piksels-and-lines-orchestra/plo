@@ -1,0 +1,17 @@
+*.swp
+*.pyc
+*.so
+*.o
+*.os
+*~
+*#
+.emacs.*
+*.mo
+*.pot
+POTFILES.in
+.#*
+*.pstats
+*.pc
+*.autosave
+*.gir
+*.typelib
