@@ -1,0 +1,3 @@
+[submodule "mypaint"]
+	path = mypaint
+	url = git@github.com:piksels-and-lines-orchestra/mypaint.git
