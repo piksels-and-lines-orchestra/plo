@@ -7,7 +7,7 @@ import sys, os
 
 if __name__ == '__main__':
     if not len(sys.argv) == 3:
-        sys.stderr.write("Wrong number of arguments, expected 2.\n")
+        sys.stderr.write("Wrong number of arguments, expected 2, got %d\n" % len(sys.argv))
         sys.stderr.write("Usage: %s APPLICATION ACTION-STRING\n" % sys.argv[0])
         sys.exit(1)
         
