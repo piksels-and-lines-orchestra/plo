@@ -1,6 +1,6 @@
-6th: Work starts
 
-Tuesday
+Week 1: Tuesday, 6th of November
+=========================
 
 Meet with Line Nord at USF Verftet and Anna Borcheding at Piksel.
 Got practical information and a tour of USF facilities, including Brendans
@@ -27,43 +27,117 @@ meeting make the code they wrote available as well.
 http://listes.domainepublic.net/pipermail/lgru/2012-November/000262.html
 
 
-Wednesday
-* Define an OSC event protocol between players and sonification server.
-* Implement event protocol in player software. MyPaint, GIMP, Inkscape, Scribus.
+Wednesday, 7th
+===========================
+
+Brendan researched plays and stories to base our plot-line and characters on.
+Also set up SuperCollider and started evaluating it for use in the sonification server.
+
+Femke Snelting provided the Scribus code that was developed at LGRU Piksels & Lines seminar.
+
+Jon defined an OSC event protocol to be used between players and sonification server,
+and implemented this new event protocol in player software: MyPaint, GIMP, Scribus
+Also wrote some small test patches/applications in PureData and Python for recieving
+this data.
+
+Thanks to Elisabeth, we got a basic website up and running at http://www.piksel.no/pulse/plo
+and access to change it.
+
+Thursday, 8th
+=============================
+
+* Implement event protocol also in: Inkscape [Jon]
 * Develop a simple test scenario/case for the sonification server.
 * Try out test scenario with the different technologies. Pure Data, CSound, SuperCollider
 * Decide on which sonification technology to use.
 
-Thursday
+Friday, 9th
+===============================
+
+* Meeting with Elisabeth (or possibly on Saturday)
+* Update website together with Elisabeth
+* Provide Gisle with information about the Piksel performance/presentation
+
+Saturday, 10th
+===============================
 
 
-Friday
+Sunday, 11th
+===============================
 
 
-Saturday
-
-
-Sunday
-
-
+Later / Undecided
+===============================
 * Set up audio server workstation.
+* Instrument Thunderbird to be able to monitor emails
+
+* Evaluate and decide on technical system for visuals.
+
+
+
+Week 2: Monday, 12th
+===============================
+
+Tuesday, 13th
+===============================
+
+Wednesday, 14th
+===============================
+
+Thursday, 15th
+===============================
+
+Friday, 16th
+===============================
 
 -- Visual system set up.
 -- All technical decisions must be done.
 -- Libretto & Score proto done.
--- All aspects hashed out. Refinements to be done by Jon
+-- All aspects hashed out. Refinements to be done by Jon in the coming week.
 
-17th: Brendan leaves
+Saturday, 17th
+===============================
+
+! Brendan leaves for Berlin, 07.00
 
 
-22th: Piksel starts.
+Sunday, 18th
+===============================
 
-23th: Brendan returns, 15.00
+
+Week 3: Monday, 19th
+===============================
+
+Tuesday, 20th
+===============================
+
+Wednesday, 21th
+===============================
+
+Thursday, 22th
+===============================
+
+! Piksel starts.
+
+Friday, 23th
+===============================
+
+! Brendan returns from Berlin, 15.00
+
+Saturday, 24th
+===============================
 
 -- Basic Libretto & Score Done
 -- Basic sound system done
 -- Couple of sound patches 
 -- Basic visual system done
 
-24th: Presentation/Demonstration
-25th: Brendan + Jon leaves
+! Piksel performance.
+
+Sunday, 25th
+===============================
+
+! Brendan leaves for Berlin, 08.40
+! Jon leaves for Oslo, 09.30
+
+
