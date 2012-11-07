@@ -4,3 +4,6 @@
 [submodule "gimp"]
 	path = gimp
 	url = git@github.com:piksels-and-lines-orchestra/gimp.git
+[submodule "scribus"]
+	path = scribus
+	url = git@github.com:piksels-and-lines-orchestra/scribus.git
