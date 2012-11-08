@@ -7,3 +7,6 @@
 [submodule "scribus"]
 	path = scribus
 	url = ../scribus.git
+[submodule "inkscape"]
+	path = inkscape
+	url = ../inkscape.git
