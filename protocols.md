@@ -1,11 +1,12 @@
 For communicating between the applications/instruments used by the players
 in the orchestra and the servers responsible for visualization and sonification
-a protocol based on Open Sound Control (OSC), version 1.0[1] is used. 
+a protocol based on [Open Sound Control (OSC), version 1.0] is used. 
 
 Applications should allow the OSC server to send messages to to be configured
 through an environment variable: PLO_SERVER=host:port
 
-== Recognized OSC messages ==
+Recognized OSC messages
+========================
 Each OSC message is on the following form:
 /method/path (TYPE arg1, TYPE arg2, TYPE arg...)
 and all methods shall be contained in the /plo namespace.
@@ -17,5 +18,6 @@ The types specifiers follows the OSC v1.0 specification.
     tracked by the applications document model or undo/redo stack.
 
 
-== References ==
-1. http://opensoundcontrol.org/spec-1_0
+References
+============
+[1]: http://opensoundcontrol.org/spec-1_0 "Open Sound Control v1.0 specification"
