@@ -75,3 +75,13 @@ ISBN 13: 9780199604968
 
 Society for Music Perception and Cognition
 http://www.musicperception.org/
+
+Interval Distributions, Mode, and Tonal Strength of
+Melodies as Predictors of Perceived Emotion
+http://www.marcocosta.it/musicperception.pdf
+
+Similarity: Multidimensional Scaling
+http://en.wikipedia.org/wiki/Multidimensional_scaling
+
+Interval (music)
+http://en.wikipedia.org/wiki/Interval_%28music%29
