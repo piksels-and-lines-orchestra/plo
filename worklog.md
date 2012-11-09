@@ -46,15 +46,18 @@ and access to change it.
 Thursday, 8th
 =============================
 
+Jon downloaded and built Inkscape. Created git repository for it and pushed to PLO repository.
+Together we wrote a SuperCollider OSC reciever test.
+
+Friday, 9th
+===============================
+
 * Implement event protocol also in: Inkscape [Jon]
 * Develop a simple test scenario/case for the sonification server.
 * Try out test scenario with the different technologies. Pure Data, CSound, SuperCollider
 * Decide on which sonification technology to use.
 
-Friday, 9th
-===============================
-
-* Meeting with Elisabeth (or possibly on Saturday)
+* Meeting with Elisabeth starting at 16.00
 * Update website together with Elisabeth
 * Provide Gisle with information about the Piksel performance/presentation
 
@@ -70,7 +73,6 @@ Later / Undecided
 ===============================
 * Set up audio server workstation.
 * Instrument Thunderbird to be able to monitor emails
-
 * Evaluate and decide on technical system for visuals.
 
 
