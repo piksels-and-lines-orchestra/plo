@@ -49,4 +49,29 @@ SuperCollider Code Snippets & Docs
 http://sccode.org/
 http://docs.sccode.org/
 
+Etherpad for original PLO prototype
+http://lgru.pad.constantvzw.org:8000/77
 
+Nidhya Logeswaran & Joydeep Bhattacharya - Crossmodal transfer of emotion by music
+http://eprints.gold.ac.uk/4213/1/NSL25933.pdf
+
+Patrik N. Juslin - Emotional Reponse to Music, 2008
+http://nemcog.smusic.nyu.edu/docs/JuslinBBSTargetArticle.pdf
+
+Music, cognition, culture and evolution
+http://www.mus.cam.ac.uk/~ic108/PDF/IRMCNYAS.pdf
+
+David Temperley - The Cognition of Basic Musical Structures, 2004
+ISBN 13: 9780262701051 
+	
+Leonard B. Meyer - Emotion and Meaning in Music, 1956
+ISBN 13: 9780226521398
+
+David Huron - Sweet Anticipation, 2008
+ISBN 13: 9780262582780
+	
+Patrik Juslin - Handbook of Music and Emotion, 2011
+ISBN 13: 9780199604968 
+
+Society for Music Perception and Cognition
+http://www.musicperception.org/
