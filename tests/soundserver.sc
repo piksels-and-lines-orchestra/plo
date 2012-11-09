@@ -1,3 +1,48 @@
+//a is sequence for mypaint
+(
+a = List[0,2,3,4];
+Pbind(\degree, Pseq(a, inf), \dur, 1/4).play;
+)
+
+
+(
+// a synth voice for gimp - B1
+SynthDef(\b1, { | out, freq = 220, amp = 0.1, nharms = 10, pan = 0, gate = 1 |
+    var audio = Blip.ar(freq, nharms, amp);
+    var env = Linen.kr(gate, doneAction: 2);
+    OffsetOut.ar(out, Pan2.ar(audio, pan, env) );
+}).add;
+)
+
+// b is sequence for gimp
+(
+b = List[1,3,5,7];
+Pbind(\instrument, \b1, \degree, Pseq(b, inf), \dur, 1/4).play;
+)
+
+
+// Recieve OSC event message, play pattern
+(
+var actionHandler = { |msg, time, addr, recvPort|
+
+    var app = msg[1].asString;
+    var action = msg[2].asString;
+
+    (app == "mypaint" && action.contains("Stroke")).if({ a.array = [3,4,2,5,1]; });
+    (app == "mypaint" && action.contains("Stroke").not).if({ a.array = [0,7,5]; });
+    (app == "mypaint" && action.contains("Layer")).if({ b.array = [3,5,7,1,1]; });
+    (app == "gimp" && action.contains("Layer").not).if({ b.array = [1,5,3,7,1]; });
+};
+OSCdef(\action).clear;
+OSCdef(\action, actionHandler, "/plo/player/action");
+
+// Self-test
+(
+m = NetAddr("127.0.0.1", NetAddr.langPort);
+m.sendMsg("/plo/player/action", "mypaint", "Stroke");
+)
+)
+
 
 // A synth which respects dur (has envelope)
 (
@@ -23,13 +68,6 @@ p = Pbind(
 )
 
 p.play
-
-// Recieve OSC event message, play pattern
-(
-n = NetAddr("127.0.0.1", NetAddr.langPort);
-OSCFunc.newMatching({ |msg, time, addr, recvPort| p.play }, "/plo/player/action");
-)
-
 
 (
 ~phrases = (
@@ -64,6 +102,8 @@ TempoClock.default.tempo = 128/60;
 OSCFunc.newMatching({ |msg, time, addr, recvPort| p.stop; p = Psym(msg, ~phrases).play;  }, "/plo/act/change");
 
 // loopback, self test
+(
 m = NetAddr("127.0.0.1", NetAddr.langPort); 
-m.sendMsg("/plo/player/action", "testapp", "someaction");
+m.sendMsg("/plo/act/change", "dim");
+)
 
