@@ -36,5 +36,17 @@ http://www.last.fm/music/Coldcut/_/Autumn+Leaves
 Alva Noto - Uni Acronym
 https://duckduckgo.com/?q=alva+noto+uni+acronym&t=canonical
 
+Memo Akten - Simple Harmonic Motion
+http://www.creativeapplications.net/sound/simple-harmonic-motion-openframeworks-sound/
+
+SuperCollider Learning
+http://supercollider.sourceforge.net/learning/
+
+SuperCollider quick reference
+http://jahya.net/blog/?2012-06-quickref-for-supercollider
+
+SuperCollider Code Snippets & Docs
+http://sccode.org/
+http://docs.sccode.org/
 
 
