@@ -47,19 +47,26 @@ Thursday, 8th
 =============================
 
 Jon downloaded and built Inkscape. Created git repository for it and pushed to PLO repository.
-Together we wrote a SuperCollider OSC reciever test.
+No implementation of the PLO event protocol yet.
+Together we wrote a SuperCollider OSC reciever test, and played with triggering 
+simple musical patterns.
 
 Friday, 9th
 ===============================
 
-* Implement event protocol also in: Inkscape [Jon]
-* Develop a simple test scenario/case for the sonification server.
-* Try out test scenario with the different technologies. Pure Data, CSound, SuperCollider
-* Decide on which sonification technology to use.
+Jon researched some papers and books on musical cognition, perception and emotional impact.
+Ordered a few for reading after the Piksel festival, and before the Future Tools Conference performance.
 
-* Meeting with Elisabeth starting at 16.00
-* Update website together with Elisabeth
-* Provide Gisle with information about the Piksel performance/presentation
+More playing around with SuperCollider. Brendan implemented some Steve Reich-styled 
+progressions, and Jon made it so that these respond to changes coming in over OSC. Ran into
+many gotyahs in the SuperCollider languages while trying to exploit some of the more
+powerful constructs and objects. More or less decided on SC now?
+
+Had meeting with Elisabeth starting at 16.00. Updated the website with new basic information about
+the project. Should be an OK basis for the Piksel program and translation into Norwegian for
+initial dissemination.
+
+
 
 Saturday, 10th
 ===============================
@@ -71,6 +78,11 @@ Sunday, 11th
 
 Later / Undecided
 ===============================
+
+* Implement event protocol also in: Inkscape [Jon]
+* Develop a simple test scenario/case for the sonification server.
+* Try out test scenario with the different technologies. Pure Data, CSound, SuperCollider
+* Decide on which sonification technology to use.
 * Set up audio server workstation.
 * Instrument Thunderbird to be able to monitor emails
 * Evaluate and decide on technical system for visuals.
