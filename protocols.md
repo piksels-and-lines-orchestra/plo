@@ -17,6 +17,11 @@ The types specifiers follows the OSC v1.0 specification.
     Typically this message is emitted upon changes to the document, as
     tracked by the applications document model or undo/redo stack.
 
+/plo/act/change (s actid)
+    Change the "act" for the orchestra to perform.
+    This may cause instruments to sound differently, or cue other changes.
+    Could be triggered by the conductor, either directly
+    or indirectly by an action in one of the applicaiton.
 
 References
 ============
