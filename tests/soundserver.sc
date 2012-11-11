@@ -35,15 +35,36 @@ postln(sequences);
 l = sequences; // XXX: Ugly way of making it available in the global scope
 )
 
+s.boot();
+(
+var events = List.new;
+var samplesDir = PathName.new("/home/jon/contrib/code/plo/lyd/wavs");
+samplesDir.files.do({
+    arg file;
+    var buf = Buffer.read(s, file.fullPath);
+    events.add(buf);
+});
+e = events; // XXX: Ugly way of making it available in the global scope
+)
+
+
 // Recieve OSC event message, play pattern
 (
 var actionHandler = { |msg, time, addr, recvPort|
 
     var sequences = l;
+    var events = e;
     var app = msg[1].asString;
     var action = msg[2].asString;
     var seqIndex = (action -> nil).hash.mod(sequences.size);
+    var eventIndex = (action -> nil).hash.mod(events.size);
 
+    // Fire event sound
+    // How to do differences between applications?
+    // Differences between players could be done through positioning in 3d space..
+    events[eventIndex].play;
+
+    // Change sequence
     (app == "mypaint").if({ a.array = sequences[seqIndex] });
     (app == "gimp").if({ b.array = sequences[seqIndex] });
 };
