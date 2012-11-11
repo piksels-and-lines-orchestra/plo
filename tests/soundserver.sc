@@ -20,18 +20,32 @@ b = List[1,3,5,7];
 Pbind(\instrument, \b1, \degree, Pseq(b, inf), \dur, 1/4).play;
 )
 
+(
+var sequences = List.new;
+thisThread.randSeed = 300;
+20.do({
+    arg i;
+    var seq = List.new;
+    rrand(1, 7).do({
+        seq.add(rrand(0, 12));
+    });
+    sequences.add(seq);
+});
+postln(sequences);
+l = sequences; // XXX: Ugly way of making it available in the global scope
+)
 
 // Recieve OSC event message, play pattern
 (
 var actionHandler = { |msg, time, addr, recvPort|
 
+    var sequences = l;
     var app = msg[1].asString;
     var action = msg[2].asString;
+    var seqIndex = (action -> nil).hash.mod(sequences.size);
 
-    (app == "mypaint" && action.contains("Stroke")).if({ a.array = [3,4,2,5,1]; });
-    (app == "mypaint" && action.contains("Stroke").not).if({ a.array = [0,7,5]; });
-    (app == "mypaint" && action.contains("Layer")).if({ b.array = [3,5,7,1,1]; });
-    (app == "gimp" && action.contains("Layer").not).if({ b.array = [1,5,3,7,1]; });
+    (app == "mypaint").if({ a.array = sequences[seqIndex] });
+    (app == "gimp").if({ b.array = sequences[seqIndex] });
 };
 OSCdef(\action).clear;
 OSCdef(\action, actionHandler, "/plo/player/action");
