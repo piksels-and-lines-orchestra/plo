@@ -85,3 +85,12 @@ http://en.wikipedia.org/wiki/Multidimensional_scaling
 
 Interval (music)
 http://en.wikipedia.org/wiki/Interval_%28music%29
+
+George Bernard Shaw
+"Pygmalion"
+
+Shakespeare - "The Tempest"
+
+Arthur Miller - Death of a Salesman
+
+Ibsen - The Master Builder
