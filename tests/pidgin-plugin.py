@@ -1,17 +1,36 @@
 #!/usr/bin/env python
 
-def my_func(account, sender, message, conversation, flags):
-    print sender, "said:", message
-
+import liblo
+import sys, os
 import dbus, gobject
 from dbus.mainloop.glib import DBusGMainLoop
 
-dbus.mainloop.glib.DBusGMainLoop(set_as_default=True)
-bus = dbus.SessionBus()
+class Application(object): 
 
-bus.add_signal_receiver(my_func,
-                        dbus_interface="im.pidgin.purple.PurpleInterface",
-                        signal_name="ReceivedChatMsg")
+    def __init__(self):
+        dbus.mainloop.glib.DBusGMainLoop(set_as_default=True)
+        bus = dbus.SessionBus()
 
-loop = gobject.MainLoop()
-loop.run()
+        s = os.environ.get('PLO_SERVER', '127.0.0.1:1234')
+        host, port = s.split(':')
+        port = int(port)
+
+        self.target = liblo.Address(host, port)
+
+        bus.add_signal_receiver(self.recieved_chat_msg_cb,
+                            dbus_interface="im.pidgin.purple.PurpleInterface",
+                            signal_name="ReceivedChatMsg")
+
+        self.loop = gobject.MainLoop()
+
+    def recieved_chat_msg_cb(self, account, sender, message, conversation, flags):
+        liblo.send(self.target, "/plo/chat/message", sender, message)
+
+    def run(self):
+        self.loop.run()
+
+if __name__ == '__main__':
+    a = Application()
+    a.run()
+
+

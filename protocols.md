@@ -23,6 +23,10 @@ The types specifiers follows the OSC v1.0 specification.
     Could be triggered by the conductor, either directly
     or indirectly by an action in one of the applicaiton.
 
+/plo/chat/message (s sender, s message)
+    A chat message was recieved.
+    This is intended to be used to drive forward a narrative.
+
 References
 ============
 [1]: http://opensoundcontrol.org/spec-1_0 "Open Sound Control v1.0 specification"

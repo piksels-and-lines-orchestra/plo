@@ -50,6 +50,13 @@ e = events; // XXX: Ugly way of making it available in the global scope
 
 // Recieve OSC event message, play pattern
 (
+var messageHandler = { |msg, time, addr, recvPort|
+    var sender = msg[1].asString;
+    var message = msg[2].asString;
+
+    sender.postln;
+    message.postln;
+}; 
 var actionHandler = { |msg, time, addr, recvPort|
 
     var sequences = l;
@@ -70,6 +77,7 @@ var actionHandler = { |msg, time, addr, recvPort|
 };
 OSCdef(\action).clear;
 OSCdef(\action, actionHandler, "/plo/player/action");
+OSCdef(\message, messageHandler, "/plo/chat/message");
 
 // Self-test
 (
@@ -78,6 +86,13 @@ m.sendMsg("/plo/player/action", "mypaint", "Stroke");
 )
 )
 
+s.ping(100);
+
+b = e[0];
+
+
+
+Ndef.clear;
 
 // A synth which respects dur (has envelope)
 (
