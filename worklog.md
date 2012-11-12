@@ -1,4 +1,10 @@
 
+Aspects
+* Technical system
+* Artistic work
+* Documentation
+
+
 Week 1: Tuesday, 6th of November
 =========================
 
@@ -75,31 +81,49 @@ Saturday, 10th
 Sunday, 11th
 ===============================
 
+Made the sequence change triggering in the sound server more general,
 
-Later / Undecided
+Implemented sample-based event sounds in SuperCollider sound server. Basically
+the same thing as existed from the lyd-based C code, just integerated with
+rest of the system.
+
+TODO week 2 / 3
 ===============================
 
-* Implement event protocol also in: Inkscape [Jon]
-* Develop a simple test scenario/case for the sonification server.
-* Try out test scenario with the different technologies. Pure Data, CSound, SuperCollider
-* Decide on which sonification technology to use.
-* Set up audio server workstation.
-* Instrument Thunderbird to be able to monitor emails
-* Evaluate and decide on technical system for visuals.
-
-
+* Implement event protocol also in: Inkscape [Jon] ?
+* Set up workstation for audio/video server.
+* Instrument Thunderbird to be able to monitor emails?
 
 Week 2: Monday, 12th
 ===============================
 
+We discussed the needs for the narrative and visual display aspects of the system.
+
+Investigated chat programs for the narrative. Needs to look good, have big audience-friendly
+fonts and facilitate hacking to be able to send messages over OSC.
+Pidgin fits the requirements. Looks OK and can use "GTK+ theme editor" plugin to 
+be able to tweak font size and colors. Can use their DBus interface to monitor
+and interact with the chat conversation. Implemented a simple prototype Python script for this.
+
+For video we decided to use VNC streams from each of the player workstations, and have
+a software for switching between these. Jon implemented a simple Python + GtkVnc based
+program that allows swithing to happen by sending OSC messages.
+
+Brendan wrote Act 1 of the score, loosely based on Pygmalion by George Bernard Shaw.
+
+
 Tuesday, 13th
 ===============================
+
+
 
 Wednesday, 14th
 ===============================
 
 Thursday, 15th
 ===============================
+
+* Meeting with Elisabeth
 
 Friday, 16th
 ===============================
