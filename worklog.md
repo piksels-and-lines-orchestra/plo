@@ -81,9 +81,10 @@ Saturday, 10th
 Sunday, 11th
 ===============================
 
-Made the sequence change triggering in the sound server more general,
-
-Implemented sample-based event sounds in SuperCollider sound server. Basically
+Jon made the sequence change triggering in the sound server more general, and
+made the sequences be automatically generated based on a deterministic
+pseudo-random algorithm.
+Also implemented sample-based event sounds in SuperCollider sound server. Basically
 the same thing as existed from the lyd-based C code, just integerated with
 rest of the system.
 
