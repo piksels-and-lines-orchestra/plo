@@ -27,6 +27,9 @@ The types specifiers follows the OSC v1.0 specification.
     A chat message was recieved.
     This is intended to be used to drive forward a narrative.
 
+/plo/video/switch (i streamIndex)
+    Change the displayed video stream.
+
 References
 ============
 [1]: http://opensoundcontrol.org/spec-1_0 "Open Sound Control v1.0 specification"
