@@ -94,3 +94,14 @@ Shakespeare - "The Tempest"
 Arthur Miller - Death of a Salesman
 
 Ibsen - The Master Builder
+
+Autumn Leaves - (cheesy but great chord progression / cannon)
+http://www.angelfire.com/fl4/moneychords/leaves.html
+
+Joseph Heller - Catch 22
+
+David Foster Wallace - Infinite Jest
+
+Borges - The Circular Ruins
+
+
