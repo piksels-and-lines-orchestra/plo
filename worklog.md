@@ -91,9 +91,15 @@ rest of the system.
 TODO week 2 / 3
 ===============================
 
-* Implement event protocol also in: Inkscape [Jon] ?
-* Set up workstation for audio/video server.
-* Instrument Thunderbird to be able to monitor emails?
+* Implement event protocol also in: Inkscape[Jon] ?
+* Set up workstation for Piksel presentation.
+* Hack together a presentation tool that can be used for
+  visual monolog / "solo" narrative. Maybe Pinpoint?
+* Experiment with the script interfaces in GIMP/Inkscape/Scribus
+  for doing the same in a bit more generative way.
+* Experiment with different musical expressions/systems in SuperCollider.
+  Chord progressions, Intervals, harmonic composition.
+  Tonal/timbre changes, filter sweeps.
 
 Week 2: Monday, 12th
 ===============================
@@ -116,10 +122,20 @@ Brendan wrote Act 1 of the score, loosely based on Pygmalion by George Bernard S
 Tuesday, 13th
 ===============================
 
+Discussed how to visually represent the project and system. Created a couple of
+sketches, illustrations and photographs for this purpose, found in the documentation/
+folder.
 
+Started setting up the workstation to use for Piksel presentation. Was missing
+power supplies, but got that from Gisle. Got latest Ubuntu installed. NB: due
+to a problem during boot (with VESA?), one has to hold shift during boot to get
+graphical output...
 
 Wednesday, 14th
 ===============================
+
+Quick meeting to check that we have everything we need for Piksel (presentation)
+on the TODO-lists for the next week. Built and installed PLO on the Ubuntu workstation.
 
 Thursday, 15th
 ===============================
@@ -132,7 +148,10 @@ Friday, 16th
 -- Visual system set up.
 -- All technical decisions must be done.
 -- Libretto & Score proto done.
--- All aspects hashed out. Refinements to be done by Jon in the coming week.
+-- All aspects that are to be presented at Piksel hashed out.
+Refinements to be done by Jon in the coming week.
+
+
 
 Saturday, 17th
 ===============================
@@ -171,12 +190,28 @@ Saturday, 24th
 -- Couple of sound patches 
 -- Basic visual system done
 
-! Piksel performance.
+! Piksel presentation.
 
 Sunday, 25th
 ===============================
 
 ! Brendan leaves for Berlin, 08.40
-! Jon leaves for Oslo, 09.30
+! Jon leaves for Tønsberg/Oslo, 09.30
 
+
+TODO post-Piksel
+=====================
+
+* Instrument Thunderbird to be able to monitor emails?
+
+Week 4: sometime in Jan/Feb/March
+==================================
+
+
+
+Week 5: Future Tools Conference / Libre Graphics Meeting
+=======================
+Wednesday, April 10th - Saturday, 13th
+
+* Performance of the artwork.
 

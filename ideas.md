@@ -12,3 +12,5 @@ chat/email with visuals.
 as part of the score.
 * Establish the principle operation of the performance system as part of the
 introduction or the first act.
+* Position the different players at different positions in the sound-field
+ to help the audience distinguish them from eachother.
