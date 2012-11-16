@@ -10,9 +10,8 @@ SynthDef(\organmajor3,{arg freq=440, amp=0.2, att=0.3, decay=0.2, sus=0.8, rel=0
 }).add
 )
 
-//a = Synth(\organmajor3);
-
-//a.set("gate", 0);
-
-//a.free;
+(
+a = List[0,2,3,4];
+Pbind(\instrument, \organmajor3, \degree, Pseq(a, inf), \dur, 2).play;
+)
 
