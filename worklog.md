@@ -88,18 +88,6 @@ Also implemented sample-based event sounds in SuperCollider sound server. Basica
 the same thing as existed from the lyd-based C code, just integerated with
 rest of the system.
 
-TODO week 2 / 3
-===============================
-
-* Implement event protocol also in: Inkscape[Jon] ?
-* Set up workstation for Piksel presentation.
-* Hack together a presentation tool that can be used for
-  visual monolog / "solo" narrative. Maybe Pinpoint?
-* Experiment with the script interfaces in GIMP/Inkscape/Scribus
-  for doing the same in a bit more generative way.
-* Experiment with different musical expressions/systems in SuperCollider.
-  Chord progressions, Intervals, harmonic composition.
-  Tonal/timbre changes, filter sweeps.
 
 Week 2: Monday, 12th
 ===============================
@@ -140,17 +128,22 @@ on the TODO-lists for the next week. Built and installed PLO on the Ubuntu works
 Thursday, 15th
 ===============================
 
-* Meeting with Elisabeth
+(Re)organized the git repository. Collect all documentation and the code/data
+for different system components available under separate directories.
+Brendan developed some new and more interesting Synthdefs for SuperCollider.
+
 
 Friday, 16th
 ===============================
 
--- Visual system set up.
--- All technical decisions must be done.
--- Libretto & Score proto done.
--- All aspects that are to be presented at Piksel hashed out.
-Refinements to be done by Jon in the coming week.
+Meeting with Elisabeth. Demonstrated the current system with all components
+running. Went through the current state of the project, evaluated progress
+wrt. to Piksel presentation.
 
+* Visual orchestrator: OK
+* Libretto orchestrator: OK
+* Playscript: OK, have act 1 draft
+* Sound orchestrator: Basic. Should be more expressive/sound prettier.
 
 
 Saturday, 17th
@@ -163,8 +156,32 @@ Sunday, 18th
 ===============================
 
 
+TODO week 2 / 3
+===============================
+
+* Implement event protocol also in: Inkscape[Jon] ?
+* Write the outline and content for the Piksel presentation.
+* Hack together a presentation tool that can be used for
+  visual monolog / "solo" narrative. Maybe Pinpoint? Or PyCessing
+* Experiment with the script interfaces in GIMP/Inkscape/Scribus
+  for doing the same in a bit more generative way.
+* Experiment with different musical expressions/systems in SuperCollider.
+    Chord progressions, Intervals, harmonic composition.
+    Tonal/timbre changes, filter sweeps.
+  
+
 Week 3: Monday, 19th
 ===============================
+
+Followed up on sourcing of the prototype code from the Piksel & Lines seminar.
+Built Underweb to check out Augusts code. Had to fix some compile issues, and 
+created a merge request on Launchpad with these fixes.
+
+Wrote a PyCessing based slideshow script. Sadly this is not usable until the
+Image class is fixed in PyCessing (currently does not display anything).
+
+Pushed panning of different players for the soundserver to git. Not happy with
+how it works, but it is something.
 
 Tuesday, 20th
 ===============================
@@ -203,6 +220,9 @@ TODO post-Piksel
 =====================
 
 * Instrument Thunderbird to be able to monitor emails?
+* Finish playscript and score.
+* Produce/source items
+*  
 
 Week 4: sometime in Jan/Feb/March
 ==================================
