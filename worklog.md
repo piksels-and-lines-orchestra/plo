@@ -156,13 +156,11 @@ Sunday, 18th
 ===============================
 
 
-TODO week 2 / 3
+TODO week 3
 ===============================
 
 * Implement event protocol also in: Inkscape[Jon] ?
 * Write the outline and content for the Piksel presentation.
-* Hack together a presentation tool that can be used for
-  visual monolog / "solo" narrative. Maybe Pinpoint? Or PyCessing
 * Experiment with the script interfaces in GIMP/Inkscape/Scribus
   for doing the same in a bit more generative way.
 * Experiment with different musical expressions/systems in SuperCollider.
@@ -186,8 +184,15 @@ how it works, but it is something.
 Tuesday, 20th
 ===============================
 
+Fixed the Image issue in PyCessing that prevented slideshow script to work.
+Also fixed the PyCessing build system for Linux, created Arch Linux packaging and
+added a "pycess" script that can be used to execute a .cess without the IDE.
+
 Wednesday, 21th
 ===============================
+
+Nothing useful from Jon. Got caught up in providing documentation and
+debugging assistance for a previous job.
 
 Thursday, 22th
 ===============================
@@ -220,9 +225,10 @@ TODO post-Piksel
 =====================
 
 * Instrument Thunderbird to be able to monitor emails?
-* Finish playscript and score.
-* Produce/source items
-*  
+* Finish playscript.
+* Finish the score.
+* Produce/source items for the visual solos.
+* Get actors for the performance.
 
 Week 4: sometime in Jan/Feb/March
 ==================================
