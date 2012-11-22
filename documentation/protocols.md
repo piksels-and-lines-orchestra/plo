@@ -3,7 +3,8 @@ in the orchestra and the servers responsible for visualization and sonification
 a protocol based on [Open Sound Control (OSC), version 1.0] is used. 
 
 Applications should allow the OSC server to send messages to to be configured
-through an environment variable: PLO_SERVER=host:port
+through an environment variable. Example:
+PLO_SERVER=host:port and PLO_VIDEO_SERVER=host:port
 
 Recognized OSC messages
 ========================
@@ -12,6 +13,7 @@ Each OSC message is on the following form:
 and all methods shall be contained in the /plo namespace.
 The types specifiers follows the OSC v1.0 specification.
 
+For PLO_SERVER
 /plo/player/action (s application, s actionid)
     A action was made by the user.
     Typically this message is emitted upon changes to the document, as
@@ -27,6 +29,11 @@ The types specifiers follows the OSC v1.0 specification.
     A chat message was recieved.
     This is intended to be used to drive forward a narrative.
 
+/plo/slideshow/slide (s slide_id, int slide_number)
+    A slide was shown/changed.
+    Intended to be able to have music following a visual slide presentation.
+
+For PLO_VIDEO_SERVER
 /plo/video/switch (i streamIndex)
     Change the displayed video stream.
 

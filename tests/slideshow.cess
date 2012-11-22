@@ -1,23 +1,38 @@
 
 class Slideshow():
 
-    def __init__(self, slides, timing=1.0):
+    def __init__(self, slides, timing=1.0, id=None):
         """
         @slides: sequence of filenames to show
         @timing: number of seconds between each slide,
             or a sequence of times; one for each slide
+        @id: A string identifier for this instance
         """
 
         self._timing = timing
         self._slide_images = [Image(f) for f in slides]
         self._accumulated_time = 0.0
         self._current_index = 0
+        self._id = id
+        if not self._id:
+            self._id = repr(self)
+            
+        # TODO: maybe just send messages when the slide is shown?
+        # would perhaps be a more robus protocol wrt to packet loss
+        self._send_osc_message()
 
     def _next_slide(self):
         # Just stop at last slide
-        print 'next'
         if self._current_index < len(self._slide_images)-1:
             self._current_index += 1
+            self._send_osc_message()
+
+    def _send_osc_message(self):
+        import liblo
+        s = os.environ.get('PLO_SERVER', '127.0.0.1:1234')
+        host, port = s.split(':')
+        port = int(port)            
+        liblo.send(liblo.Address(host, port), "/plo/slideshow/slide", self._id, self._current_index)
 
     def _effective_timing(self):
         """Return the time that should be spent on the current slide"""
@@ -33,7 +48,7 @@ class Slideshow():
         self._slide_images[self._current_index].draw(x, y)
 
     def nextTick(self):
-        fps = 60.0 # FIXME: get from pycessing
+        fps = pycessing.getFPS() or 60.0
         self._accumulated_time += 1.0/fps
         if self._accumulated_time >= self._effective_timing():
             self._next_slide()
