@@ -156,16 +156,7 @@ Sunday, 18th
 ===============================
 
 
-TODO week 3
-===============================
 
-* Implement event protocol also in: Inkscape[Jon] ?
-* Write the outline and content for the Piksel presentation.
-* Experiment with the script interfaces in GIMP/Inkscape/Scribus
-  for doing the same in a bit more generative way.
-* Experiment with different musical expressions/systems in SuperCollider.
-    Chord progressions, Intervals, harmonic composition.
-    Tonal/timbre changes, filter sweeps.
   
 
 Week 3: Monday, 19th
@@ -202,7 +193,9 @@ Thursday, 22th
 Friday, 23th
 ===============================
 
-! Brendan returns from Berlin, 15.00
+Found and implemented a better way to do setup and modifications of the sound processing pipeline in SuperCollider - using a ProxySpace object instead of directly fiddling with NodeProxy objects.
+
+Brendan returned from Berlin in the afternoon. Got together to plan the presentation form and content. Worked on making the workstation ready for demo. 
 
 Saturday, 24th
 ===============================
@@ -212,7 +205,11 @@ Saturday, 24th
 -- Couple of sound patches 
 -- Basic visual system done
 
-! Piksel presentation.
+Put together some slides for the presentation. Did the actual presentation and demo. Due to the previous talk running late and the time after being reserverd for sound checks it had to be compacted to 45 minutes.
+Piksel recorded the presentation, and it will hopefully be available on the website soon.
+
+Did a meeting to documenting the code and progress so far, and planning
+the work that still remains to be done.
 
 Sunday, 25th
 ===============================
@@ -224,11 +221,24 @@ Sunday, 25th
 TODO post-Piksel
 =====================
 
-* Instrument Thunderbird to be able to monitor emails?
+Neccesary
+* Fix bug: plo-vnc-viewer.py script does not update the screen continiously, only when hovering the mouse over.
+ 
+* Implement event protocol also in: Inkscape
 * Finish playscript.
+* Design sound for the score.
 * Finish the score.
 * Produce/source items for the visual solos.
 * Get actors for the performance.
+* Rehearse the performance.
+* Full run-through of the performance.
+
+Nice to have
+* Experiment with the script interfaces in GIMP/Inkscape/Scribus
+  for doing the same in a bit more generative way.
+* Instrument Thunderbird to be able to monitor emails?
+
+
 
 Week 4: sometime in Jan/Feb/March
 ==================================
@@ -239,5 +249,8 @@ Week 5: Future Tools Conference / Libre Graphics Meeting
 =======================
 Wednesday, April 10th - Saturday, 13th
 
+* Should get together a couple of days before conference
+to the do last preparations. Monday+Tuesday at the very least,
+maybe also the weekend?
 * Performance of the artwork.
 
