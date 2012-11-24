@@ -37,32 +37,36 @@ e = events; // XXX: Ugly way of making it available in the global scope
 )
 
 (
-~out = NodeProxy.audio(s, 2);
-~out.play;
-a = List[1,2,3,4]; // Sequence for MyPaint
-b = List[1,3,5,7]; // Sequence for GIMP
+p = ProxySpace.new;
+p[\out].play();
+a = ();
+a[\mypaint] = List[1,2,3,4];
+a[\gimp] = List[1,3,5,7];
 )
 
-~playerNodes = nil;
+p[\out].scope;
+ProxyMixer.new(p);
 
 // Initialize/set player configuration
 (
 var playerConf = Dictionary[
-    "193.168.1.104" -> -1.0,
-    "193.168.1.105" -> 1.0,
-    "127.0.0.1" -> 0.0
+    '193.168.1.104' -> -1.0,
+    '193.168.1.105' -> 1.0,
+    '127.0.0.1' -> 0.0
 ];
 var defaultConf = 0.0;
 
-if(~playerNodes == nil, { ~playerNodes = Dictionary.new });
-
-~playerNodes.keysValuesDo({ |key, value|
-    value.set(\pos, playerConf.atFail(key, defaultConf));
+playerConf.keysValuesDo({ |key, value|  
+    var node = p[key];
+    if (node != nil, {
+        node.set(\pos, value);
+    });
 });
-
 )
 
+p;
 
+p['127.0.0.1/mypaint/seq'].set(\instrument, \organmajor3);
 
 // Recieve OSC event message, play pattern
 (
@@ -77,42 +81,31 @@ var actionHandler = { |msg, time, addr, recvPort|
     
     var sequences = l;
     var events = e;
-    var app = msg[1].asString;
-    var action = msg[2].asString;
+    var app = msg[1];
+    var action = msg[2];
     var seqIndex = (action -> nil).hash.mod(sequences.size);
     var eventIndex = (action -> nil).hash.mod(events.size);
-    var playerNode = nil;
-    var soundNode = nil;
 
-    addr = addr.ip;
-    
-    playerNode = ~playerNodes.at(addr);
-    if(playerNode == nil, {
-        playerNode = NodeProxy.audio;
-        playerNode.source = { | pos = 0 | Pan2.ar(\in.ar(), pos, 1.0) };
-        NodeProxy.audio <>> playerNode;
-        ~out.add(playerNode);
-        ~playerNodes.put(addr, playerNode);
+    addr = addr.ip.asSymbol;
 
-        soundNode = playerNode.get(\in);
-        soundNode.source = nil;
-        if(app == "mypaint", { soundNode.add(Pbind(\degree, Pseq(a, inf), \dur, 1/4)); });
-        if(app == "gimp", { soundNode.add(Pbind(\degree, Pseq(b, inf), \dur, 1/4)); });
-        
+    if(p.envir.at(addr) == nil, {
+        var nodeSymbol;
+        postln("adding player and sequence node for %".format(addr));
+	    p[addr] = { | pos = 0 | Pan2.ar(\in.ar(), pos, 1.0) };
+        p[\out].add(p[addr]);
+
+        nodeSymbol = "%/%/seq".format(addr, app).asSymbol;
+	    p[nodeSymbol] = Pbind(\degree, Pseq(a[app], inf), \dur, 1/4);
+	    p[nodeSymbol] <>> p[addr];
     });
-
-    soundNode = playerNode.get(\in);
-    //soundNode.source = nil;
 
     // Fire event sound
     // FIXME: Causes
     // ERROR: 'prepareForProxySynthDef' should have been implemented by Buffer.
-    // oundNode.add(events[eventIndex]); 
-
+    // oundNode.add(events[eventIndex]);
 
     // Change sequence
-    (app == "mypaint").if({ a.array = sequences[seqIndex] });
-    (app == "gimp").if({ b.array = sequences[seqIndex] });
+    a[app].array = sequences[seqIndex];
 };
 OSCdef(\action).clear;
 OSCdef(\action, actionHandler, "/plo/player/action");
@@ -124,7 +117,7 @@ OSCdef(\message, messageHandler, "/plo/chat/message");
 // Self-test
 (
 m = NetAddr("127.0.0.1", NetAddr.langPort);
-m.sendMsg("/plo/player/action", "mypaint", "S10r11o188111e");
+m.sendMsg("/plo/player/action", "mypaint", "S1252231re");
 )
 
 
