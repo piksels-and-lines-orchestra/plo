@@ -1,7 +1,7 @@
 // Self-test
 (
 m = NetAddr("127.0.0.1", NetAddr.langPort);
-m.sendMsg("/plo/player/action", "mypaint", "S1252231re");
+m.sendMsg("/plo/player/action", "mypaint", "S11252300231re");
 )
 
 // loopback, self test
