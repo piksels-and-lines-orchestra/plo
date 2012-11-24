@@ -1,15 +1,7 @@
 // INIT start
 
-(
-// a synth voice for gimp - B1
-SynthDef(\b1, { | out, freq = 220, amp = 0.1, nharms = 10, pan = 0, gate = 1 |
-    var audio = Blip.ar(freq, nharms, amp);
-    var env = Linen.kr(gate, doneAction: 2);
-    OffsetOut.ar(out, Pan2.ar(audio, pan, env) );
-}).add;
-)
-
-
+// Create a random (but deterministic) note sequences that
+// we can switch between.
 (
 var sequences = List.new;
 thisThread.randSeed = 300;
@@ -26,8 +18,15 @@ l = sequences; // XXX: Ugly way of making it available in the global scope
 )
 
 (
+a = ();
+a[\mypaint] = List[1,2,3,4];
+a[\gimp] = List[1,3,5,7];
+)
+
+// Load event sound samples into buffers
+(
 var events = List.new;
-var samplesDir = PathName.new("/home/jon/contrib/code/plo/soundserver/wavs");
+var samplesDir = PathName.new("/home/plo/plo/soundserver/wavs");
 samplesDir.files.do({
     arg file;
     var buf = Buffer.read(s, file.fullPath);
@@ -36,13 +35,23 @@ samplesDir.files.do({
 e = events; // XXX: Ugly way of making it available in the global scope
 )
 
+
+// Set up a ProxySpace which we will use for all the sound processing
+// 
+//
+// HW output <- out <- player1 <- application1
+//                   |
+//                   - player2 <- application2 <- sound1
+//                   |          |               |
+//                   - playerN  |               - sound2
+//                              - applicationN
+//
+// Each node in this DAG has a symbol that is encoded like in HTTP
+// '$player-ip/$application-name/$sound'
+// Ex: p['127.0.0.1/mypaint/seq']
 (
 p = ProxySpace.new;
 p[\out].play();
-
-a = ();
-a[\mypaint] = List[1,2,3,4];
-a[\gimp] = List[1,3,5,7];
 )
 
 // For debugging
@@ -54,6 +63,7 @@ p;
 p['127.0.0.1/mypaint/seq'].set(\instrument, \organmajor3);
 
 // Set player panning configuration
+// TODO: make initial creation of nodes respect this config
 (
 var playerConf = Dictionary[
     '193.168.1.104' -> -1.0,
@@ -72,7 +82,7 @@ playerConf.keysValuesDo({ |key, value|
 )
 
 
-// Recieve OSC event message, play pattern
+// Recieve OSC chat message
 (
 var messageHandler = { |msg, time, addr, recvPort|
     var sender = msg[1].asString;
@@ -80,7 +90,13 @@ var messageHandler = { |msg, time, addr, recvPort|
 
     sender.postln;
     message.postln;
-}; 
+};
+OSCdef(\message).clear;
+OSCdef(\message, messageHandler, "/plo/chat/message");
+)
+
+// Recieve OSC event/action message: trigger sounds
+(
 var actionHandler = { |msg, time, addr, recvPort|
     
     var sequences = l;
@@ -93,6 +109,7 @@ var actionHandler = { |msg, time, addr, recvPort|
 
     addr = addr.ip.asSymbol;
 
+    // Create node for the player
     if(p.envir.at(addr) == nil, {
         postln("adding player and sequence node for %".format(addr));
 	    p[addr] = { | pos = 0 | Pan2.ar(\in.ar(), pos, 1.0) };
@@ -110,27 +127,19 @@ var actionHandler = { |msg, time, addr, recvPort|
     p[addr].add(p[nodeSymbol]);
 
     // Change sequence
+    // TODO: do by looking up and changing properties on the Node
     a[app].array = sequences[seqIndex];
 };
 OSCdef(\action).clear;
 OSCdef(\action, actionHandler, "/plo/player/action");
-OSCdef(\message, messageHandler, "/plo/chat/message");
+
 )
 
-// INIT end
-
-// Self-test
+// Recieve OSC act change message 
 (
-m = NetAddr("127.0.0.1", NetAddr.langPort);
-m.sendMsg("/plo/player/action", "mypaint", "S1252231re");
+var actChangeHandler = { |msg, time, addr, recvPort|
+    // TODO: change sound
+};
+OSCDef(\act_change).clear();
+OSCDef(actChangeHandler, "/plo/act/change");
 )
-
-
-OSCFunc.newMatching({ |msg, time, addr, recvPort| p.stop; p = Psym(msg, ~phrases).play;  }, "/plo/act/change");
-
-// loopback, self test
-(
-m = NetAddr("127.0.0.1", NetAddr.langPort); 
-m.sendMsg("/plo/act/change", "dim");
-)
-
