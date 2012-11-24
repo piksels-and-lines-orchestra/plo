@@ -200,45 +200,87 @@ Brendan returned from Berlin in the afternoon. Got together to plan the presenta
 Saturday, 24th
 ===============================
 
--- Basic Libretto & Score Done
--- Basic sound system done
--- Couple of sound patches 
--- Basic visual system done
-
 Put together some slides for the presentation. Did the actual presentation and demo. Due to the previous talk running late and the time after being reserverd for sound checks it had to be compacted to 45 minutes.
 Piksel recorded the presentation, and it will hopefully be available on the website soon.
 
-Did a meeting to documenting the code and progress so far, and planning
-the work that still remains to be done.
+Cleaned up and documented the code. Is now nicely split into different files,
+has a clear separation between score and system, following a couple of simple
+practices/conventions.
+
+Did a meeting to evaluate and documenting the current status, progress and planning
+the work that still remains to be done. See "Post-Piksel Status & Todo"
 
 Sunday, 25th
 ===============================
 
-! Brendan leaves for Berlin, 08.40
-! Jon leaves for Tønsberg/Oslo, 09.30
+* Brendan leaves for Berlin, 08.40
+* Jon leaves for Tønsberg/Oslo, 09.30
 
+Post-Piksel Status & Todo
+==========================
 
-TODO post-Piksel
-=====================
+Status
+-------
+* Playscript outline done
+* Basic sound system done
+* Couple of sound patches
+* Basic visual system done
+* Basic dialog system done
+* No conductor interface for system
+* No real score
 
 Neccesary
+----------
+Visual system
 * Fix bug: plo-vnc-viewer.py script does not update the screen continiously, only when hovering the mouse over.
- 
+ * Calling GtkVncDisplay::request_update all the time does not seem to work,
+   as a new request seems to cancel the old one: thus no request completes and
+   the thing never updates. TODO: look at the GtkVncDisplay code and the handling 
+   of mouse events and triggering updates.
+* plo-vnc-viewer.py: Find a way to enable scaling of the input VNC stream.
+
+Sound system
+* Implement a "solo" function. Tune down all players except for the one doing the solo.
+* Investigate the distortion that seems to occur when using default synth voice for sequences. Does it happen with other synth voices at all? 
+
+Conductor interface
+* Make a easy interface (keybindings or graphical) for video switching
+* Create an easy interface for changing the act in the score. Could happen via the dialog system / IRC chat.
+
+Instruments
 * Implement event protocol also in: Inkscape
-* Finish playscript.
+* MyPaint: trigger stroke events when the stroke ends, not on next stroke start
+* Check that applications don't trigger events during startup (ex: MyPaint)
+* Define a more expressive protocol that provides mouse pointer info. Motion x/y, button up/down, pressure, time. From this one can then calculate duration of action, velocity
+
+Performance
+* Finish playscript (incl. libretto).
 * Design sound for the score.
 * Finish the score.
 * Produce/source items for the visual solos.
+   eg. from Principles of Two-Dimensional Design
 * Get actors for the performance.
 * Rehearse the performance.
 * Full run-through of the performance.
 
 Nice to have
+-------------
+* plo-vnc-display.py: Ability to show multiple VNC streams at once.
 * Experiment with the script interfaces in GIMP/Inkscape/Scribus
   for doing the same in a bit more generative way.
+ * Could we record and play back the undo stack of the application?
 * Instrument Thunderbird to be able to monitor emails?
 
+Workplan
+------------
+Starting January, weekly status meeting Mondays at 19.00 
 
+Goal: 45-minute performance.
+When playscript is done, evaluate feasibility and length.
+
+Critical tasks (deadline: 1. February):
+* Playscript.
+* OSC protocol and implementation of mouse position,time based instruments.
 
 Week 4: sometime in Jan/Feb/March
 ==================================
@@ -250,7 +292,7 @@ Week 5: Future Tools Conference / Libre Graphics Meeting
 Wednesday, April 10th - Saturday, 13th
 
 * Should get together a couple of days before conference
-to the do last preparations. Monday+Tuesday at the very least,
+to do the last preparations. Monday+Tuesday at the very least,
 maybe also the weekend?
 * Performance of the artwork.
 
