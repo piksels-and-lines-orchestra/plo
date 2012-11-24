@@ -31,7 +31,7 @@ var samplesDir = PathName.new("/home/jon/contrib/code/plo/soundserver/wavs");
 samplesDir.files.do({
     arg file;
     var buf = Buffer.read(s, file.fullPath);
-    events.add(buf);
+    events.add(buf.bufnum);
 });
 e = events; // XXX: Ugly way of making it available in the global scope
 )
@@ -85,11 +85,11 @@ var actionHandler = { |msg, time, addr, recvPort|
     var action = msg[2];
     var seqIndex = (action -> nil).hash.mod(sequences.size);
     var eventIndex = (action -> nil).hash.mod(events.size);
+    var nodeSymbol;
 
     addr = addr.ip.asSymbol;
 
     if(p.envir.at(addr) == nil, {
-        var nodeSymbol;
         postln("adding player and sequence node for %".format(addr));
 	    p[addr] = { | pos = 0 | Pan2.ar(\in.ar(), pos, 1.0) };
         p[\out].add(p[addr]);
@@ -100,9 +100,10 @@ var actionHandler = { |msg, time, addr, recvPort|
     });
 
     // Fire event sound
-    // FIXME: Causes
-    // ERROR: 'prepareForProxySynthDef' should have been implemented by Buffer.
-    // oundNode.add(events[eventIndex]);
+    postln("firing event sound from buffer: %".format(events[eventIndex]));
+    nodeSymbol = "%/%/event".format(addr, app).asSymbol;
+    p[nodeSymbol] = { PlayBuf.ar(1, events[eventIndex]) * 0.01 };
+    p[addr].add(p[nodeSymbol]);
 
     // Change sequence
     a[app].array = sequences[seqIndex];
