@@ -39,15 +39,21 @@ e = events; // XXX: Ugly way of making it available in the global scope
 (
 p = ProxySpace.new;
 p[\out].play();
+
 a = ();
 a[\mypaint] = List[1,2,3,4];
 a[\gimp] = List[1,3,5,7];
 )
 
+// For debugging
 p[\out].scope;
 ProxyMixer.new(p);
+p;
 
-// Initialize/set player configuration
+// How to find a node in the hierarchy and set a property
+p['127.0.0.1/mypaint/seq'].set(\instrument, \organmajor3);
+
+// Set player panning configuration
 (
 var playerConf = Dictionary[
     '193.168.1.104' -> -1.0,
@@ -56,17 +62,15 @@ var playerConf = Dictionary[
 ];
 var defaultConf = 0.0;
 
-playerConf.keysValuesDo({ |key, value|  
+playerConf.keysValuesDo({ |key, value|
     var node = p[key];
     if (node != nil, {
+        postln("Setting pan for %: %".format(key, value));
         node.set(\pos, value);
     });
 });
 )
 
-p;
-
-p['127.0.0.1/mypaint/seq'].set(\instrument, \organmajor3);
 
 // Recieve OSC event message, play pattern
 (
