@@ -282,6 +282,134 @@ Critical tasks (deadline: 1. February):
 * Playscript.
 * OSC protocol and implementation of mouse position,time based instruments.
 
+
+Monday 07 January status meeting
+=====================================
+Kickstarting the new year.
+
+Things discussed
+* What has happened since Piksel.
+* Focus for next weeks work.
+* If we should involve a sound designer/composer or not and how.
+Next meeting Monday 14, 19.00
+
+<mr_ersatz> hey
+<mr_ersatz> sorry I totally spaced out after dinner and forgot to log in.
+<mr_ersatz> jonnor: yt?
+<jonnor> mr_ersatz, hey
+<jonnor> yt?
+<mr_ersatz> "you there"
+<jonnor> ah. Yes
+<jonnor> I myself some dinner in the meantime, no prob
+<mr_ersatz> I'm using my 90's chatroom lingo.
+<jonnor> don't forget I was hardly even born in the 90ies :p
+<mr_ersatz> are you still eating?
+<jonnor> yes, in front of the computer ;)
+<jonnor> so we can just start
+<mr_ersatz> ok but I can also wait if you want to finish.
+<jonnor> nah
+<jonnor> why don't we start with what has happened since Piksel? (if anything=
+<mr_ersatz> well frankly, not a whole lot other than some thinking.
+<mr_ersatz> I have been to the theater twice and I'm going again next week.
+<jonnor> ah, very nice
+<jonnor> anything good?
+<mr_ersatz> yeah.  an austrian play about 80 years old called "faith, hope and love" and a very experimental play about revolution and marat dying in the bathtub.
+<mr_ersatz> and we are going to see something called "kill your darlings" next week.
+<mr_ersatz> that one looks awesome.
+<jonnor> cool
+<jonnor> both contemporary works I guess?
+<mr_ersatz> yeah.
+<mr_ersatz> some famous actors and some younger not so big ones.
+<mr_ersatz> it is interesting to see what they do with it.  it's really so different from film or tv formats.
+<mr_ersatz> you can have a lot going on simultaneously.
+<mr_ersatz> you can also go much slower and there's no need to think about cuts.
+<jonnor> how do they handle/use multiple things going on at the same time?
+<mr_ersatz> and none of these were trying to be super realistic.  there was always an awareness of the fact that it's theater.
+<mr_ersatz> well sometimes it may just be a gag that somebody is doing something goofy in the background or somebody comes in and does something before entering the conversation or sometimes you just have 5 people doing different things, usually physical at the same time.
+<jonnor> yeah
+<jonnor> I have not done much apart from a bit of thinking either. I've just started reading L.B.Meyer - Emotion and meaning in music, a frequently referred work in music cognition
+<mr_ersatz> with a camera there's always a center of focus that tells you where you are to look.
+<mr_ersatz> yeah?  any interesting stuff?
+<jonnor> Very heavy academic style, so not sure if it will result in many things that are directly applicable. But seems to build a very solid foundation
+<jonnor> I'm just 40 pages in, so bit early
+<mr_ersatz> ok.  does he go into any technical detail about scales, chords, patterns, etc?
+<jonnor> yes, further along in the book there is a good bit of analysis of musical structures
+<mr_ersatz> ok so maybe we can steal a few things from that.
+<jonnor> shuffling through it quickly there seems to be more and more of that, quite a lot in the last half
+<jonnor> hope so ;)
+<jonnor> there is an improv music festival here in Oslo the coming weekend which I plan to go to
+<mr_ersatz> oh cool.
+<jonnor> haven't been before or know any of the artists, so don't know what to expect
+<mr_ersatz> if you're not so familiar, it can be a bit shocking at first.  but it can be really cool.
+<jonnor> good, I don't mind being mindjolted a bit
+<jonnor> in other libre graphics news, we released MyPaint 1.1 on new-years eve
+<mr_ersatz> yeah.  I mean if you are into metal you can deal with crazy dissonance.
+<mr_ersatz> woot
+<jonnor> Yes. Was about time, over a year since last release :)
+<mr_ersatz> so does that mean we need to upgrade the plo?
+<jonnor> nah, but no reason not to do it
+<jonnor> our changes are minor and I don't expect much conflicts, if any
+<mr_ersatz> ok cool.
+<jonnor> we considered adding a plugin hook for the release, but it got punted
+<mr_ersatz> so what do you think about the interaction and instrumenting that we have so far?
+<jonnor> Needs more work I think to be interesting. I'm planning to work on something that "instrumentifies" the pointer/brush action the next couple of weeks
+<jonnor> in MyPaint first and foremost. Perhaps the concepts can be transferred to other apps later
+<mr_ersatz> ok.  is that realistic for gimp, scribus too?
+<jonnor> technically I don't see any reason why not
+<jonnor> its more a question if it would be the most interesting thing to do, artistically
+<jonnor> would be nice to have other instrument concepts just to make them more different from eachother
+<mr_ersatz> I think it's important to have some kind of expressions that would map to note and velocity.
+<mr_ersatz> yeah?  what do you mean, like drum or breath models?
+<jonnor> drums would be interesting
+<jonnor> for GIMP I'm also thinking something where one would use layers and effects massively
+<mr_ersatz> that sounds cool.
+<jonnor> I found an interesting video tutorial (hope I can dig it up again) about something the guy called recursive ambience tracks
+<mr_ersatz> yeah send me a mail if you find it.
+<jonnor> basically just starting with a single sample in a track. Then using simple transformations like delay, reverse, filtering, on the track to get a new one
+<jonnor> then applying a similar transformation, with some variations to get a new one. merge into original to get a new one
+<jonnor> and then repeat
+<jonnor> 5, 10+ times
+<mr_ersatz> yeah I dig it.  similar to a lot of drones technique.
+<mr_ersatz> any hint how we can implement it in SC?
+<jonnor> I think it is something that would map pretty closely to the node concept we already use
+<mr_ersatz> ok.  
+<mr_ersatz> so we can basically chain up some effects and tweak them as things go along.
+<mr_ersatz> ok.  well I want to get the first act written next week.  I am finishing up my big freelance gig this week so I should have more time.
+<jonnor> yes, and functions that applies this to a buffer
+<mr_ersatz> so do you think we should get help with composition or can we muddle through?
+<jonnor> Not sure. What I know is that we need to get instruments more "done". A composition would somehow have to be based on them
+<jonnor> so perhaps too early to start on a composition now?
+<mr_ersatz> ok so what would that mean?  synth voices or also some kind of sequences and patterns?
+<mr_ersatz> or effect chains like you were suggesting.
+<jonnor> I'm thinking more in the mapping of user input to something musical/soundlike, how one would use/interface with the instruments
+<jonnor> If we involve someone more experienced it may be possible to implement instruments quicker - because they may know/have clearer ideas about what is useful/interesting and not
+<mr_ersatz> yeah ok so how would we proceed with that?  would we start with a set of definitions and instrumented applications (beyond what we have now) and then use that as the spec?
+<mr_ersatz> our sound designer / composer can then plug em in to fit the script?
+<jonnor> found the clip I was talking about. Was called fractal effects, not recursive: https://www.youtube.com/watch?v=ecqiPCJlaG4&list=PL789D34B812B70B56
+<mr_ersatz> oh nice.  
+<mr_ersatz> I will listen to it later.  
+<jonnor> mr_ersatz, we could do that. I think the sound designer/composer would have to work quite closely with us though
+<jonnor> As I'm not sure we can deliver instruments on a narrowly defined spec. A composition would have to be based on what we have and can do, not a spec
+<jonnor> so maybe vision or guideline is better word than spec...
+<mr_ersatz> yeah.  I guess by "spec" I meant more of a definition of what is possible.  yeah a guideline.
+<mr_ersatz> I think we have more work to do before we can bring in a composer.
+<jonnor> Agreed. We can keep eyes and ears open though. Composers probably have some lead time :p
+<mr_ersatz> yeah.  I can talk to frederik olofsson.  he lives in berlin and is quite the SC haxor and makes really nice stuff.
+<mr_ersatz> http://www.fredrikolofsson.com/
+<jonnor> Nice
+<jonnor> brb 2 min
+<mr_ersatz> k
+<jonnor> back
+<mr_ersatz> ok.
+<jonnor> Have we got anything else for today?
+<mr_ersatz> I think we covered where we're at.  if anything comes up we can email.
+<jonnor> Otherwise, meet again same time next monday?
+<mr_ersatz> yeah sounds good.
+<jonnor> Yes. I'm also in this channel when I'm online
+<mr_ersatz> ok.  I'll try to get on a bit more often.
+<mr_ersatz> take it easy.
+<jonnor> cheers, and have fun at the theater!
+
 Week 4: sometime in Jan/Feb/March
 ==================================
 
