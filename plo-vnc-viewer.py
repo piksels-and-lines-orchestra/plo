@@ -17,6 +17,7 @@ class VncSwitcherApplication(object):
 
         self.init_ui()
         self.set_active_vnc_stream(0)
+        self.frame_no = 0
 
     def init_ui(self):
         self.toplevel = Gtk.Window()
@@ -30,6 +31,7 @@ class VncSwitcherApplication(object):
         for host, port in self.servers:
         
             vnc_display = GtkVnc.Display()
+            vnc_display.set_scaling(True)
             vnc_display.connect('vnc-connected', self.connected_cb)
             vnc_display.connect('vnc-disconnected', self.disconnected_cb)
             vnc_display.connect('vnc-initialized', self.initialized_cb)
@@ -40,6 +42,19 @@ class VncSwitcherApplication(object):
             print "success: %r" % success
 
         self.toplevel.show_all()
+
+#        GObject.timeout_add(500, self.refresh)
+
+    def refresh(self):
+        self.frame_no += 1
+        if self.frame_no < 10:
+            return True
+
+        print "refreshing"
+        for display in self.notebook.get_children():
+            display.request_update()
+
+        return True
 
     def set_active_vnc_stream(self, index):
         if index >= 0 and index < self.notebook.get_n_pages():
