@@ -53,3 +53,17 @@ OSCdef(\act_change, { |msg, time, addr, recvPort|
     // TODO: change sound
 },
 "/plo/act/change");
+
+// Recieve OSC MyPaint stroke_to message
+OSCdef(\stroke_to).clear();
+OSCdef(\stroke_to, { |msg, time, addr, recvPort|
+    var x = msg[1];
+    var y = msg[2];
+    var pressure = msg[3];
+    var xtilt = msg[4];
+    var ytilt = msg[5];
+    var dtime = msg[6];
+    
+    postln("stroke_to: x=%, y=%, pressure=%, dtime=%".format(x, y, pressure, dtime));
+},
+"/plo/mypaint/stroke_to");
