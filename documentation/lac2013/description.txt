@@ -1,0 +1,6 @@
+The Piksels and Lines Orchestra
+
+Duration 30 min.
+
+The Piksels and Lines Orchestra is an experimental performance system for graphic design. The customized software of the PLO intends to establish a meaningful mapping of concepts and metaphors of graphics interfaces to sound. By turning the tools of graphic design, the software applications, into instruments, the active labour and the operational gestures of designers are converted to sound. Actions like painting, cutting, setting text, adding layers, drawing shapes etc. are reflected by sonic events within a score.  At the same time, the system brings the audience visually into the everyday work environment of the designer by exposing the application interfaces as they are used.  The applications used in this project, GIMP, Scribus, Inkscape and MyPaint, are all free and open source software.
+
