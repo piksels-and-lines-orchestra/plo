@@ -1,0 +1,15 @@
+== Summary ==
+What happens if we shift our view of Libre Graphics applications from being tools to being instruments; consider the user as a player of this instrument, the practice of collaborative art and design an orchestra of players working in concert?
+Can we establish a meaningful mapping of concepts and metaphors in the graphics world into similar things in the musical world? If we try to do so, how would using (playing) GIMP, Scribus, Inkscape or MyPaint sound?
+
+The Piksels & Lines Orchestra (PLO) is a research project that aim to explore these questions and through this illustrate and interrogate the established technical and socials systems within design and art.
+The project is a part of the EU-funded Libre Graphics Research Unit (LGRU), and was supported by Piksel and URF Verftet through a residency in Bergen, Norway in November 2012.
+
+Everyone who attends the presentation will be invited to a performance done with the PLO, where your favourite Libre Graphics applications will be used to create music. Or at the very least, sound.
+
+
+
+== Bio ==
+Jon Nordby is a software engineer with a background in open source, Linux and Libre Graphics projects like MyPaint, GEGL and OpenRaster. He currently lives in Oslo, working on microphone array systems and cautiously exploring more artistic perspectives on the world.
+
+Brendan Howell is a media artist and an engineer. He has created various software works and interactive electronic inventions. He currently lives and works in Berlin, Germany and shares a studio with the Weise7 group.  He has done research and led courses at the Berliner Technische Kunsthochschule, Merz Akademie, Fachhochschule Potsdam and the Kunsthochschule Berlin, Weißensee.
