@@ -284,7 +284,7 @@ Critical tasks (deadline: 1. February):
 * OSC protocol and implementation of mouse position,time based instruments.
 
 
-Monday 07 January status meeting
+Monday, January 7th: status meeting
 =====================================
 Kickstarting the new year.
 
@@ -411,8 +411,61 @@ Next meeting Monday 14, 19.00
 <mr_ersatz> take it easy.
 <jonnor> cheers, and have fun at the theater!
 
-Week 4: sometime in Jan/Feb/March
-==================================
+Monday, January 21th: status meeting
+=====================================
+<mr_ersatz>	jonnor: yt?
+<jonnor>	mr_ersatz, hey, yes
+<jonnor>	whats up?
+<mr_ersatz>	just wanted to check in
+ <mr_ersatz>	you have time to chat?
+<jonnor>	yep
+<jonnor>	I'm physically still at work, but basically done for the day
+<mr_ersatz>	ok cool.  how are you?
+<jonnor>	Pretty good, but things have been a bit more busy than I like lately
+<mr_ersatz>	just work or life in general?
+<jonnor>	Lots of arms and legs at work, and I'm not really good at leave it at 40 hours weeks..
+<jonnor>	just work
+<jonnor>	I'll find a sane rhythm soon I hope
+<jonnor>	how are you
+<jonnor>	?
+<mr_ersatz>	heh.  yeah.  well hopefully you'll work out a routine yeah.
+<mr_ersatz>	I'm good.  I finally have a little time to breathe.
+<mr_ersatz>	I'm trying to tie up loose ends on various projects from last year and chase down people for unpaid invoices etc.
+<jonnor>	:( never fun. Hope it works out without too much hassle
+<mr_ersatz>	nah it's not too bad.  it feels good to be able to close chapters.  and it's not like anyone is going to screw me over.  they are just busy and sloppy with bookkeeping.
+<jonnor>	Ok, good
+<jonnor>	How was the recent theater trip?
+<mr_ersatz>	well the experimental thing we saw on saturday was a bit too minimal / raw for me.
+<mr_ersatz>	it was very improvised and there was no plot.
+<mr_ersatz>	the one I'm really looking forward to is at the end of february.
+<jonnor>	I was not able to go to the improv music festival like I planned. I had forgotten that that weekend was company-trip to go skiing. At least I got back on the snowboard after years of not riding.
+<mr_ersatz>	transmediale starts this weekend.
+<mr_ersatz>	nice.  I hope you didn't hurt your ass.
+<jonnor>	nah, no body parts damaged
+<mr_ersatz>	cool.
+<mr_ersatz>	I send fredrik oloffson an email today.  I will let you know when he responds.
+<jonnor>	anything on the plan for transmediale?
+<jonnor>	ok
+<mr_ersatz>	I was supposed to be involved with some workshops but the main organizer never managed to find time to have a meeting with me.
+<mr_ersatz>	so I think I will just be hanging out, going to events and boozing with friends from out of town.
+<jonnor>	sounds fun!
+<jonnor>	btw, if I find time to come to Berlin for a long weekend or so
+<jonnor>	is there any period that would be better for you for collaborating?
+<mr_ersatz>	yeah.  I am gone from the 20-27 feb.  
+<jonnor>	noted
+<mr_ersatz>	otherwise I was reading today and hope to get an act written by next week.
+<jonnor>	Ok. I plan to write the brush/cursor/pointer based instrument for MyPaint
+<mr_ersatz>	ok cool.  well lets see if we can't get one or two things done and then catch up again next monday?
+<jonnor>	yes, lets try that
+<mr_ersatz>	ok cool.  I need to run to deal with dinner.  
+<mr_ersatz>	have a good one!
+<jonnor>	thanks, same to you!
+<mr_ersatz>	later.
+
+Feb/March
+=================
+TODO: add irc logs from status meetings
+TODO: add info about LGM & LAC proposals, LGRU evaluation, script outline
 
 Saturday, April 6th
 ======================
@@ -425,7 +478,7 @@ Jon:
 - make a minimally viable expressive MyPaint instrument
 
 Brendan:
-- solo instrument for showing visuals together with sound
+- solo instrument for showing visuals together with sound, driving the story forwards
 
 Sunday
 ======================
