@@ -13,6 +13,8 @@ Each OSC message is on the following form:
 and all methods shall be contained in the /plo namespace.
 The types specifiers follows the OSC v1.0 specification.
 
+General
+---------
 For PLO_SERVER
 /plo/player/action (s application, s actionid)
     A action was made by the user.
@@ -36,6 +38,43 @@ For PLO_SERVER
 For PLO_VIDEO_SERVER
 /plo/video/switch (i streamIndex)
     Change the displayed video stream.
+
+
+MyPaint
+---------
+For PLO_SERVER
+
+/plo/mypaint/stroke_to (f x, f y, f pressure, f xtilt, f ytilt, f dtime)
+    Stroke motion events as given to the MyPaint brush engine.
+
+/plo/mypaint/brush/changed (s brush_name)
+    A different brush was selected.
+    Will typically come together with a /settings_changed message.
+
+TODO: or perhaps one settings_change message per setting?
+/plo/mypaint/brush/settings_changed ([f s0,f s1,...] settings)
+    The settings of the current brush changed.
+
+/plo/mypaint/brush/states_changed ([f s0,f s1,...])
+    Internal states of the MyPaint brush engine.
+
+/plo/mypaint/surface/draw_dab
+    Internal call by the MyPaint brush engine, places a single dab on the canvas.
+
+
+GIMP
+-----------
+
+TODO: define. Need to be able to get layers, filters
+Challenge: filters are destructive...
+/plo/gimp/?
+
+Scribus
+-----------
+
+TODO: define. Need to get position, name, type of objects and canvas/page information
+/plo/scribus/?
+
 
 References
 ============

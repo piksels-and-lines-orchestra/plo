@@ -251,7 +251,8 @@ Instruments
 * Implement event protocol also in: Inkscape
 * MyPaint: trigger stroke events when the stroke ends, not on next stroke start
 * Check that applications don't trigger events during startup (ex: MyPaint)
-* Define a more expressive protocol that provides mouse pointer info. Motion x/y, button up/down, pressure, time. From this one can then calculate duration of action, velocity
+* Define a more expressive protocol that provides mouse pointer info.
+Motion x/y, button up/down, pressure, time. From this one can then calculate duration of action, velocity
 
 Performance
 * Finish playscript (incl. libretto).
@@ -413,14 +414,57 @@ Next meeting Monday 14, 19.00
 Week 4: sometime in Jan/Feb/March
 ==================================
 
+Saturday, April 6th
+======================
 
+Met up in Madrid
+Tour of venue, Medialab Prado
+Checking technical requirements, discussing which stage to use, when to do hehaersal
 
-Week 5: Future Tools Conference / Libre Graphics Meeting
-=======================
-Wednesday, April 10th - Saturday, 13th
+Jon:
+- make a minimally viable expressive MyPaint instrument
 
-* Should get together a couple of days before conference
-to do the last preparations. Monday+Tuesday at the very least,
-maybe also the weekend?
-* Performance of the artwork.
+Brendan:
+- solo instrument for showing visuals together with sound
+
+Sunday
+======================
+
+Monday, April 8th
+======================
+
+Tuesday
+=====================
+
+Rehearsal at Medialab Prado?
+
+Wednesday
+==================
+
+17.00: LGM opening talk
+18.20: Brendan presenting PyCessing
+
+Thursday
+===================
+
+Friday
+===================
+
+DEADLINE
+21.30: Performance time!!!
+
+Saturday
+===================
+
+12.30: Jon presenting libmypaint
+
+Do a PLO Post-mortem meeting.
+Discuss how the project went
+Document existing state, possible future work
+Maybe include Femke and Elisabeth also for parts of meeting?
+
+Sunday, April 14th
+====================
+Jon and Brendan leaving Madrid
+
 
