@@ -20,7 +20,7 @@ q[\tempseq][\gimp] = List[1,3,5,7];
 
 // Load event sound samples into buffers
 q[\events] = List.new;
-PathName.new("/home/plo/plo/soundserver/wavs").files.do({
+PathName.new("./soundserver/wavs").files.do({
     arg file;
     var buf = Buffer.read(s, file.fullPath);
     q[\events].add(buf.bufnum);
