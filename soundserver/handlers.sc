@@ -55,6 +55,7 @@ OSCdef(\act_change, { |msg, time, addr, recvPort|
 "/plo/act/change");
 
 // Recieve OSC MyPaint stroke_to message
+e[\last_stroke_to] = Nil
 OSCdef(\stroke_to).clear();
 OSCdef(\stroke_to, { |msg, time, addr, recvPort|
     var x = msg[1];
@@ -64,6 +65,87 @@ OSCdef(\stroke_to, { |msg, time, addr, recvPort|
     var ytilt = msg[5];
     var dtime = msg[6];
     
-    postln("stroke_to: x=%, y=%, pressure=%, dtime=%".format(x, y, pressure, dtime));
+    if(pressure < 0.001, {
+        e[\last_dab_to] = Nil;
+    });
+
+    if(e[\last_stroke_to] != Nil, {
+
+    }, {
+        
+    });
+
+    e[\last_stroke_to] = msg;
+
+    //postln("stroke_to: x=%, y=%, pressure=%, dtime=%".format(x, y, pressure, dtime));
 },
 "/plo/mypaint/stroke_to");
+
+
+(
+e[\last_dab] = Nil;
+
+OSCdef(\draw_dab).clear();
+OSCdef(\draw_dab, { |msg, time, addr, recvPort|
+    var x = msg[1];
+    var y = msg[2];
+    var radius = msg[3];
+    var r = msg[4];
+    var g = msg[5];
+    var b = msg[6];
+    var opacity = msg[7];
+    var hardness = msg[8];
+    var a = msg[9];
+    var aspect_ratio = msg[10];
+    var angle = msg[11];
+    var alpha_lock = msg[12];
+    var colorize = msg[13];
+
+    // FIXME: output and state management need to be per-player, not global
+
+    if((e[\last_dab] != Nil) && (e[\last_stroke_to] != Nil), {
+        var distance_to_last;
+        var distance_to_stroke_center;
+        var color, hue, even, odd;
+        // IDEA: make strokes that affect a bigger area be more diffuse,
+        // and those that affect a small area more "pointed"
+
+        //e[\last_dab].postln;
+        //e[\last_stroke_to].postln;
+        distance_to_stroke_center = ((e[\last_stroke_to][1] - x)**2) + ((e[\last_stroke_to][2] - y)**2);
+        distance_to_last = ((e[\last_dab][1] - x)**2) + ((e[\last_dab][2] - y)**2);
+        color = Color.new(r,g,b,a);
+        hue = color.asHSV[0];
+        
+        even = ((hue < 0.5).if({ (-2.0*hue) + 1.0 }, { 2.0*hue - 1.0 }) );
+        odd = ((hue < 0.5).if({ 2.0*hue }, { (-2.0*hue) + 2.0 }) );
+        if(hue.isNaN, {even = 0.5; odd = 0.5}; );
+        hue.postln;
+        even.postln;
+        odd.postln;
+//        ( (color.asHSV[0]  0.5) % 1.0 ).postln;
+        //distance_to_stroke_center.postln;
+        //distance_to_last.postln;
+
+        // Only add grains for dabs that are percieved as a distinct dab
+        if((distance_to_last > (0.5*radius)), {
+            Routine({
+                radius.asInteger.do({ arg i;
+                    Synth.new("grain", [\freq, (x-radius)+i, \amp, opacity*a, \odd, odd, \even, even]);
+                    0.01.wait;
+                })
+            }).play;
+
+        }, {
+
+        });
+
+    }, {
+
+    });
+    e[\last_dab] = msg;
+
+    // postln("draw_dab: x=%, y=%, radius=%, rgba=%,%,%,%".format(x, y, radius, r,g,b,a));
+},
+"/plo/mypaint/surface/draw_dab");
+)

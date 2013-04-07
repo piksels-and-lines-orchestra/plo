@@ -42,3 +42,18 @@ q[\playerPanning].keysValuesDo({ |key, value|
         node.set(\pos, value);
     });
 });
+
+
+(
+SynthDef("grain", { arg freq = 1000, amp = 1.0, odd = 1.0, even = 1.0, size = 1.0;
+    var evens, odds, fund, env;
+    var k=1;
+
+    fund = FSinOsc.ar(freq);
+    evens = 10.collect {|n| FSinOsc.ar(freq*((n+1)*2)) * (1.0/((n+1)**k)) * even }.sum;
+    odds = 10.collect {|n| FSinOsc.ar(freq*((n+1)*2) + 1) * (1.0/((n+1)**k)) * odd }.sum;
+    env = Line.kr(0.1, 0, 0.05 + size*0.10, doneAction:2);
+    Out.ar(0, amp * env * ( fund + evens + odds) )
+
+}).send(s);
+)

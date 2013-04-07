@@ -20,6 +20,9 @@
     // Define the score.
     q = ();
 
+    // Somewhere to store arbitrary state
+    e = ();
+
     // Note: execute from the PLO project toplevel
     this.executeFile("soundserver/handlers.sc");
     this.executeFile("soundserver/score.sc");
