@@ -49,16 +49,22 @@ For PLO_SERVER
 
 /plo/mypaint/brush/changed (s brush_name)
     A different brush was selected.
-    Will typically come together with a /settings_changed message.
+    Will typically come together with a set of /setting_changed messages.
 
-TODO: or perhaps one settings_change message per setting?
-/plo/mypaint/brush/settings_changed ([f s0,f s1,...] settings)
+/plo/mypaint/brush/setting_changed (s setting_id, f base_value)
+    # TODO: also expose dynamics
     The settings of the current brush changed.
+    For the meaning of the individual settings, see "brushlib/brushsettings.json" in MyPaint git. 
 
-/plo/mypaint/brush/states_changed ([f s0,f s1,...])
+/plo/mypaint/brush/states_changed (f state0, f state1,..., f stateN)
     Internal states of the MyPaint brush engine.
+    For the meaning of individual states, see "brushlib/brushsettings.json" in MyPaint git.
 
-/plo/mypaint/surface/draw_dab
+/plo/mypaint/surface/draw_dab (f x, f y, f radius,
+                               f color_r, f color_g, f color_b,
+                               f opacity, f hardness, f color_a,
+                               f aspect_ratio, f angle,
+                               f alpha_lock, f colorize)
     Internal call by the MyPaint brush engine, places a single dab on the canvas.
 
 
