@@ -474,17 +474,19 @@ Met up in Madrid
 Tour of venue, Medialab Prado
 Checking technical requirements, discussing which stage to use, when to do hehaersal
 
-Jon:
-- make a minimally viable expressive MyPaint instrument
+Jon: Starting making a minimally viable MyPaint instrument that more reflects
+and expresses the personality of the application: focus on the brush and strokes.
 
-Brendan:
-- solo instrument for showing visuals together with sound, driving the story forwards
+Brendan: working on a solo instrument for showing visuals together with sound, driving the story forwards
 
 Sunday
 ======================
+Jon: Exposed everything that should be needed for MyPaint instrument over OSC.
+Completed a prototype of a "granular synthesis brush" instrument.
 
 Monday, April 8th
 ======================
+Jon: Working on exposing what we need from GIMP to get up a prototype for its instrument concept.
 
 Tuesday
 =====================
