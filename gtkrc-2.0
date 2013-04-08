@@ -3,6 +3,9 @@
 # write the settings again.
 # The FAQ (http://developer.pidgin.im/wiki/FAQ) contains some further examples
 # of possible pidgin gtkrc settings.
+#
+# put this in ~/.purple
+#
 style "purplerc_style"
 {
 }
