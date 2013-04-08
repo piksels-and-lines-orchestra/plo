@@ -104,4 +104,6 @@ David Foster Wallace - Infinite Jest
 
 Borges - The Circular Ruins
 
-
+Couple of different ways to do text-to-speech synthesis using SuperCollider
+http://new-supercollider-mailing-lists-forums-use-these.2681727.n2.nabble.com/Text-To-speech-td4520252.html
+http://askubuntu.com/questions/53896/natural-sounding-text-to-speech
