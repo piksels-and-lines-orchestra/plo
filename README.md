@@ -21,7 +21,8 @@ Installing
 =============
 
 First install dependencies. On Ubuntu (12.10):
-apt-get build-dep inkscape gimp scribus mypaint
-apt-get install supercollider supercollider-gedit python-liblo
-apt-get install gir1.2-gtk-vnc-2.0 libgtk-vnc-2.0-dev vino vinagre
+
+    sudo apt-get build-dep inkscape gimp scribus mypaint
+    sudo apt-get install supercollider supercollider-gedit python-liblo
+    sudo apt-get install gir1.2-gtk-vnc-2.0 libgtk-vnc-2.0-dev vino vinagre
 
