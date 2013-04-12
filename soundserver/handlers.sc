@@ -40,7 +40,7 @@ OSCdef(\action, { |msg, time, addr, recvPort|
     // Fire event sound
     postln("firing event sound from buffer: %".format(events[eventIndex]));
     nodeSymbol = "%/%/event".format(addr, app).asSymbol;
-    p[nodeSymbol] = { PlayBuf.ar(1, events[eventIndex]) * 0.01 };
+    p[nodeSymbol] = { PlayBuf.ar(1, events[eventIndex]) * 0.007 };
     p[addr].add(p[nodeSymbol]);
 
     // Change sequence
