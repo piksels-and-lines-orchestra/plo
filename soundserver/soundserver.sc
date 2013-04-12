@@ -35,7 +35,5 @@ p[\out].scope;
 ProxyMixer.new(p);
 p;
 
-// How to find a node in the hierarchy and set a property
-p['127.0.0.1/mypaint/seq'].set(\instrument, \organmajor3);
 
 

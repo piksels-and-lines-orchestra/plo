@@ -13,6 +13,56 @@ thisThread.randSeed = 300;
 });
 postln(q[\sequences]);
 
+// a breathy-metallic bell-like tone with detuned harmonics and 
+// and a bit of noisy reverb like side effect
+// might be better with a bit of filter or randomized detuning
+SynthDef(\klinker, { arg freq=440, amp=0.2, att=0.3, decay=0.2, sus=0.8, rel=1.3, gate=1.0;
+
+    var freqs, ringtimes, signal, env;
+
+    env = EnvGen.kr(Env.adsr(att,decay,sus,rel),gate,levelScale:1,doneAction:2);
+    freqs = [freq/2, 3.355*freq, 5.765*freq, 8.615*freq];
+    ringtimes = [1, 1, 1, 1];
+    signal = DynKlank.ar(`[freqs, env, ringtimes ], PinkNoise.ar([0.007,0.007]));
+    Out.ar(0, signal);
+}).add;
+
+// // How to find a node in the hierarchy and set a property
+// Good for act 3
+//p['127.0.0.1/mypaint/seq'].set(\instrument, \klinker);
+
+SynthDef(\organmajor3,{arg freq=440, amp=0.2, att=0.3, decay=0.2, sus=0.8, rel=0.3, gate=1.0, pan=0.0; 
+    var output,sines,env;
+
+    env = EnvGen.kr(Env.adsr(att,decay,sus,rel),gate,levelScale:1,doneAction:2);
+    sines = SinOsc.ar([freq, freq*(5/4), freq*1.5],0,env*amp);
+    output = Pan2.ar(Mix(sines), pan);
+    Out.ar(0, output); 
+}).add;
+
+// Ok for act 1
+// p['127.0.0.1/mypaint/seq'].set(\instrument, \organmajor3);
+
+SynthDef(\cs80lead, {	
+        arg freq=880, amp=0.9, att=0.95, decay=0.5, sus=0.8, rel=1.0, fatt=0.95, fdecay=0.5, fsus=0.8, frel=1.0, cutoff=300, pan=1.0, dtune=0.002, vibrate=4, vibdepth=0.015, gate=1.0, ratio=1, out=0, cbus=1;
+
+	var env,fenv,vib,ffreq,sig;
+	cutoff=In.kr(cbus);
+	env=EnvGen.kr(Env.adsr(att,decay,sus,rel),gate,levelScale:1,doneAction:2);
+	fenv=EnvGen.kr(Env.adsr(fatt,fdecay,fsus,frel,curve:2),gate,levelScale:1,doneAction:2);
+	vib=SinOsc.kr(vibrate).range(-1*vibdepth,vibdepth)+1;
+	freq=Line.kr(freq,freq*ratio,5);
+	freq=freq*vib;
+	sig=Mix.ar(Saw.ar([freq,freq*(1+dtune)],mul:env*amp*8));
+	// keep this below nyquist!!
+	ffreq=max(fenv*freq*12,cutoff)+100;
+	sig=LPF.ar(sig,ffreq);
+	Out.ar(out, Pan2.ar(sig,pan) );
+}).add;
+
+// p['127.0.0.1/mypaint/seq'].set(\instrument, \cs80lead);
+//p['127.0.0.1/mypaint/seq'] = Pbind(\degree, Pseq(q[\tempseq][\mypaint], inf), \dur, 1/4);
+
 // TODO: remove
 q[\tempseq] = ();
 q[\tempseq][\mypaint] = List[1,2,3,4];
