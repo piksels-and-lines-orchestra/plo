@@ -26,8 +26,10 @@ OSCdef(\action, { |msg, time, addr, recvPort|
 
     // Create node for the player
     if(p.envir.at(addr) == nil, {
+        var conf = q[\playerConfig].atFail(addr, { q[\playerConfigDefault] } );
         postln("adding player and sequence node for %".format(addr));
-	    p[addr] = { | pos = 0 | Pan2.ar(\in.ar(), pos, 1.0) };
+
+	    p[addr] = { Pan2.ar(\in.ar(), conf[0], conf[1]) };
         p[\out].add(p[addr]);
 
         nodeSymbol = "%/%/seq".format(addr, app).asSymbol;
@@ -55,7 +57,7 @@ OSCdef(\act_change, { |msg, time, addr, recvPort|
 "/plo/act/change");
 
 // Recieve OSC MyPaint stroke_to message
-e[\last_stroke_to] = Nil
+e[\last_stroke_to] = Nil;
 OSCdef(\stroke_to).clear();
 OSCdef(\stroke_to, { |msg, time, addr, recvPort|
     var x = msg[1];
@@ -82,9 +84,7 @@ OSCdef(\stroke_to, { |msg, time, addr, recvPort|
 "/plo/mypaint/stroke_to");
 
 
-(
 e[\last_dab] = Nil;
-
 OSCdef(\draw_dab).clear();
 OSCdef(\draw_dab, { |msg, time, addr, recvPort|
     var x = msg[1];
@@ -148,4 +148,30 @@ OSCdef(\draw_dab, { |msg, time, addr, recvPort|
     // postln("draw_dab: x=%, y=%, radius=%, rgba=%,%,%,%".format(x, y, radius, r,g,b,a));
 },
 "/plo/mypaint/surface/draw_dab");
-)
+
+OSCdef(\player_config).clear;
+OSCdef(\player_config, { |msg, time, addr, recvPort|
+    var playerId = msg[1];
+    var pan = msg[2];
+    var volume = msg[3];
+    var conf;
+
+    msg.postln;
+
+    // Store config
+    q[\playerConfig].put(playerId, [pan, volume]);
+    conf = q[\playerConfig][playerId];
+
+    // Activate
+    if (p.envir[playerId] != nil, {
+        
+    }, {
+        postln("Warning: Could not find player node!");
+    });
+    p[playerId] = { Pan2.ar(\in.ar(), conf[0], conf[1]) };
+},
+"/plo/server/player/change_config");
+
+NetAddr("127.0.0.1", NetAddr.langPort).sendMsg("/plo/server/player/change_config", '127.0.0.1', 0.0, 6.0);
+
+"handlers initialized".postln;

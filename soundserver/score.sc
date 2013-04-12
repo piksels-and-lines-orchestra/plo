@@ -17,6 +17,7 @@ postln(q[\sequences]);
 q[\tempseq] = ();
 q[\tempseq][\mypaint] = List[1,2,3,4];
 q[\tempseq][\gimp] = List[1,3,5,7];
+q[\tempseq][\scribus] = List[1,4,5,3];
 
 // Load event sound samples into buffers
 q[\events] = List.new;
@@ -26,25 +27,14 @@ PathName.new("./soundserver/wavs").files.do({
     q[\events].add(buf.bufnum);
 });
 
-// Set player panning configuration
-// TODO: make initial creation of nodes respect this config
-q[\playerPanning] = Dictionary[
-    '193.168.1.104' -> -1.0,
-    '193.168.1.105' -> 1.0,
-    '127.0.0.1' -> 0.0
+// Initial player panning configuration
+q[\playerConfig] = Dictionary[
+    // [pan, volume]
+    '127.0.0.1' -> [0.0, 0.5]
 ];
-q[\playerPanningDefault] = 0.0;
-
-q[\playerPanning].keysValuesDo({ |key, value|
-    var node = p.envir[key];
-    if (node != nil, {
-        postln("Setting pan for %: %".format(key, value));
-        node.set(\pos, value);
-    });
-});
+q[\playerConfigDefault] = [0.0, 0.5];
 
 
-(
 SynthDef("grain", { arg freq = 1000, amp = 1.0, odd = 1.0, even = 1.0, size = 1.0;
     var evens, odds, fund, env;
     var k=1;
@@ -56,4 +46,5 @@ SynthDef("grain", { arg freq = 1000, amp = 1.0, odd = 1.0, even = 1.0, size = 1.
     Out.ar(0, amp * env * ( fund + evens + odds) )
 
 }).send(s);
-)
+
+"score initialized".postln;

@@ -24,8 +24,10 @@
     e = ();
 
     // Note: execute from the PLO project toplevel
-    this.executeFile("soundserver/handlers.sc");
     this.executeFile("soundserver/score.sc");
+    this.executeFile("soundserver/handlers.sc");
+
+    NetAddr("127.0.0.1", NetAddr.langPort).sendMsg("/plo/act/change", "0")
 )
 
 // For debugging
