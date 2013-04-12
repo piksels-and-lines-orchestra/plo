@@ -7,3 +7,6 @@ SynthDef(\b1, { | out, freq = 220, amp = 0.1, nharms = 10, pan = 0, gate = 1 |
 }).add;
 )
 
+p['127.0.0.1/mypaint/seq'].set(\instrument, \b1);
+p['127.0.0.1/mypaint/seq'] = Pbind(\degree, Pseq(q[\tempseq]['mypaint'], inf), \dur, 1/4);
+p['127.0.0.1/mypaint/seq'] <>> p['127.0.0.1'];

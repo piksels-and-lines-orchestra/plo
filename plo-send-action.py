@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 
 """Helper binary for sending an application action to the PLO server."""
 

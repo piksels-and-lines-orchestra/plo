@@ -135,10 +135,10 @@ q[\mypaintGrainCreate] = {
 
         var conf = q[\playerConfig].atFail('192.168.1.145', { [0.0, 1.0] } );
         Routine({
-            5.do({ arg i;
+            3.do({ arg i;
                 Synth.new("grain", [\freq, (x-radius)+(i*2*(radius/5)), \pan, conf[0],
                                     \amp, opacity*a*0.2 * conf[1]]);
-                0.03.wait;
+                0.05.wait;
             })
         }).play;
 

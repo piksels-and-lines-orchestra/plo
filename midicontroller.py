@@ -116,7 +116,7 @@ def set_volume(target, ch, value, *ignore):
                players[ch][0], players[ch][2], players[ch][1])
 
 def set_pan(target, ch, value, *ignore):
-    players[ch][2] = value/127.0
+    players[ch][2] = ((value-(127.0/2))/127.0)*2.0
     print "set pan for channel %d: %f" % (ch, players[ch][2])
     liblo.send(target, "/plo/server/player/change_config",
                players[ch][0], players[ch][2], players[ch][1])
@@ -133,7 +133,7 @@ if __name__ == '__main__':
     players = [
         # (ip, volume, pan)
         [],
-        ["192.168.1.90", 1.0, -1.0],
+        ["127.0.0.1", 1.0, -1.0],
         ["192.168.1.100", 1.0, -0.3],
         ["192.168.1.129", 1.0, +0.3],
         ["192.168.1.145", 1.0, +1.0],
