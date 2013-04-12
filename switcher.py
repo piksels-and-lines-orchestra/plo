@@ -44,6 +44,7 @@ class _GetchWindows:
 players = []
 
 def switch_vid(target, ch, *ignore):
+    ch = ch-1
     print "switching video to %d" % ch
     liblo.send(target, "/plo/video/stream", ch)
 
@@ -51,13 +52,13 @@ def volume_up(target, ch, *ignore):
     print "voume up for channel %d" % ch
     players[ch][1] += 0.1
     liblo.send(target, "/plo/server/player/change_config",
-               players[ch][0], players[ch][1], players[ch][2])
+               players[ch][0], players[ch][2], players[ch][1])
 
 def volume_down(target, ch, *ignore):
     print "voume down for channel %d" % ch
     players[ch][1] -= 0.1
     liblo.send(target, "/plo/server/player/change_config",
-               players[ch][0], players[ch][1], players[ch][2])
+               players[ch][0], players[ch][2], players[ch][1])
 
 if __name__ == '__main__':
     vid_server = os.environ.get('PLO_VIDEO_SERVER', '127.0.0.1:1234')
@@ -71,8 +72,8 @@ if __name__ == '__main__':
         [],
         ["192.168.1.90", 1.0, -1.0],
         ["192.168.1.100", 1.0, -0.3],
-        ["192.168.1.200", 1.0, +0.3],
-        ["192.168.1.300", 1.0, +1.0],
+        ["192.168.1.129", 1.0, +0.3],
+        ["192.168.1.145", 1.0, +1.0],
     ]
 
     def quit():
