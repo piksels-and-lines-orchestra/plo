@@ -36,4 +36,4 @@ See [./setup.md](./setup.md)
 
 Technical documentation
 =======================
-See [./documentation/system.md]([./documentation/system.md])
+See [./documentation/system.md](./documentation/system.md)
