@@ -53,7 +53,7 @@ programatically. See [plo-vnc-viewer.py](../scripts/plo-vnc-viewer.py)
 The players/actors provide the dialog of the story by participating in a group chat.
 The IM client Pidgin and IRC/XMPP chat rooms are used for this. The messages can
 be picked up by the sonification and visualization server and trigger events or score
-changes there. See [../narrativedisplay/README.md]
+changes there. See [../narrativedisplay/README.md](../narrativedisplay/README.md)
 
 5: Conductor interfaces
 -----------------------

@@ -1,6 +1,9 @@
 For communicating between the applications/instruments used by the players
 in the orchestra and the servers responsible for visualization and sonification
-a protocol based on [Open Sound Control (OSC), version 1.0] is used. 
+a protocol based on [Open Sound Control (OSC), version 1.0](http://opensoundcontrol.org/spec-1_0 "Open Sound Control v1.0")
+is used. 
+
+
 
 Applications should allow the OSC server to send messages to to be configured
 through an environment variable. Example:
@@ -89,6 +92,3 @@ Need to get information about the current active/selected object,
 and the changes that are done to this object.
 /plo/inkscape/?
 
-References
-============
-[1]: http://opensoundcontrol.org/spec-1_0 "Open Sound Control v1.0 specification"
