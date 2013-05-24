@@ -1,3 +1,6 @@
+A day-by-day, week-by-week work log for the PLO system and comission.
+For more technical details, see the git log. The [research.md](./documentation/research.md)
+contains some more links to various things we visisted while working on this project.
 
 Aspects
 * Technical system
@@ -513,13 +516,25 @@ Saturday
 
 12.30: Jon presenting libmypaint
 
-Do a PLO Post-mortem meeting.
-Discuss how the project went
-Document existing state, possible future work
-Maybe include Femke and Elisabeth also for parts of meeting?
+Did a PLO Post-mortem meeting.
+Discussed how the project went.
+Documented existing state, possible future work
 
 Sunday, April 14th
 ====================
-Jon and Brendan leaving Madrid
+More documentation of existing state with Elisabeth.
+
+Jon and Brendan leaving Madrid.
+
+Wednesday, May 
+=====================
+Final evaluation of PLO (and other LGRU projects) at LGRU meeting in Porto.
+Elisabeth present on-site, Jon present remotely.
+Added missing documentation to project report (to be published at lgru.net)
+
+Friday, May 25th
+======================
+Jon cleaned up and finalized technical documentation,
+and organized repository a bit better, with more interlinking.
 
 
