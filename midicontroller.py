@@ -1,16 +1,16 @@
 #!/usr/bin/env python
 
-"""Contains an example of midi input, and a separate example of midi output.
+"""
+Application for controlling PLO
 
-By default it runs the output example.
-python midi.py --output
-python midi.py --input
-
+Designed for use with the AKAI LPD-8.
+It should be possible to use other MIDI devices by changing 'keymapping' below.
 """
 
 import sys
 import os
 import functools
+import math
 
 import pygame
 import pygame.midi
@@ -70,7 +70,8 @@ def input_main(device_id = None, midi_handle=None):
             if e.type in [QUIT]:
                 going = False
             if e.type in [KEYDOWN]:
-                going = False
+                pass
+                #going = False
             if e.type in [pygame.midi.MIDIIN]:
                 if midi_handle:
                     midi_handle(e)
@@ -86,12 +87,9 @@ def input_main(device_id = None, midi_handle=None):
     del i
     pygame.midi.quit()
 
-
-
 def usage():
-    print ("--input [device_id] : Midi message logger")
-    print ("--output [device_id] : Midi piano keyboard")
-    print ("--list : list available midi devices")
+    print ("--input [device_id] : MIDI control mode")
+    print ("--list : list available MIDI devices")
 
 def main(mode='output', device_id=None):
     if mode == 'input':
@@ -110,7 +108,7 @@ def switch_vid(target, ch, value, *ignore):
         liblo.send(target, "/plo/video/stream", ch)
 
 def set_volume(target, ch, value, *ignore):
-    players[ch][1] = value/127.0
+    players[ch][1] = ((math.exp(value/127.0) - 1.0) / 2.73) * 50
     print "set volume for channel %d: %f" % (ch, players[ch][1])
     liblo.send(target, "/plo/server/player/change_config",
                players[ch][0], players[ch][2], players[ch][1])
@@ -126,7 +124,7 @@ if __name__ == '__main__':
 
     vid_server = os.environ.get('PLO_VIDEO_SERVER', '127.0.0.1:1234')
     vid_server = liblo.Address(*vid_server.split(":"))
-    server = os.environ.get('PLO_SERVER', '127.0.0.1:57120')
+    server = os.environ.get('PLO_SERVER', '127.0.0.1:57121')
     server = liblo.Address(*server.split(":"))
 
     # FIXME: read from a config file
