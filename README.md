@@ -5,10 +5,10 @@ Main repository for the [plo](http://www.piksel.no/pulse/plo "Piksels &amp; Line
 
 Several existing codebases, with some customizations, are included as git submodules.
 
-* [GIMP](../../gimp)
-* [MyPaint](../../mypaint)
-* [Scribus](../../scribus)
-* [Inkscape](../../inkscape)
+* [GIMP](../../../gimp)
+* [MyPaint](../../../mypaint)
+* [Scribus](../../../scribus)
+* [Inkscape](../../../inkscape)
 
 PLO was initially developed as part of the
 [lgru](http://lgru.net/archives/category/piksels-and-lines "Libre Graphics Research Unit (LGRU)")
