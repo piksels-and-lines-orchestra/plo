@@ -5,10 +5,10 @@ Main repository for the [plo](http://www.piksel.no/pulse/plo "Piksels &amp; Line
 
 Several existing codebases, with some customizations, are included as git submodules.
 
-* [GIMP](../gimp)
-* [MyPaint](../mypaint)
-* [Scribus](../scribus)
-* [Inkscape](../inkscape)
+* [GIMP](../../gimp)
+* [MyPaint](../../mypaint)
+* [Scribus](../../scribus)
+* [Inkscape](../../inkscape)
 
 PLO was initially developed as part of the
 [lgru](http://lgru.net/archives/category/piksels-and-lines "Libre Graphics Research Unit (LGRU)")
@@ -26,9 +26,9 @@ The custom modifications and additions done in the PLO project to these projects
 
 Authors
 =========
-[Brendan Howell](http://www.wintermute.org/brendan/)
-[Jon Nordby](http://www.jonnor.com)
-with contributions from Pierre Marchand, Øyvind Kolås
+[Brendan Howell](http://www.wintermute.org/brendan/)    
+[Jon Nordby](http://www.jonnor.com)    
+with contributions from Pierre Marchand, Øyvind Kolås and others
 
 Installing and running
 =======================
