@@ -81,6 +81,13 @@ Scribus
 TODO: define. Need to get position, name, type of objects and canvas/page information
 /plo/scribus/?
 
+Inkscape
+----------
+
+TODO: define. Need to get position, name, type of objects and canvas/page information.
+Need to get information about the current active/selected object,
+and the changes that are done to this object.
+/plo/inkscape/?
 
 References
 ============

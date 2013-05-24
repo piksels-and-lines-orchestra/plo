@@ -1,4 +1,21 @@
-Ideas/vision for the instrumentification(tm) of various libre graphics application.
+Vision and ideas for the instrumentification(tm) of various libre graphics application.
+
+MyPaint - granular synthesis violin
+===================================
+Solo instrument used for melody.
+
+
+Mappings
+----------
+* Brush dab -> sound grain
+* Brush settings -> grain generation/combination settings
+* Stroke opacity -> grain volume
+
+Temporality
+----------
+A stroke is audible for N seconds,
+where N depends on the "length" (in continious pixels) of the stroke?
+Will allow staccato versus legato playing
 
 
 GIMP as an (audio) instrument - a multi-track sample editor
@@ -42,22 +59,7 @@ Temporality
 TODO: was discussed on IRC in February, find log and include the conclusion here
 
 
-MyPaint - granular synthesis violin
-===================================
-Solo instrument used for melody.
 
-
-Mappings
-----------
-* Brush dab -> sound grain
-* Brush settings -> grain generation/combination settings
-* Stroke opacity -> grain volume
-
-Temporality
-----------
-A stroke is audible for N seconds,
-where N depends on the "length" (in continious pixels) of the stroke?
-Will allow staccato versus legato playing
 
 Scribus
 ==========
